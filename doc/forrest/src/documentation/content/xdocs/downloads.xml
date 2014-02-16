@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Downloads</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Downloads</abstract> 
+  </header> 
+  <body>
+    <section><title>KBVT 0.6.2</title>
+    <p>
+      <fork href="kbvt-0.6.2.zip">KBVT 0.6.2 (2.7 MB)</fork> - <fork
+      href="kbvt-0.6.2.zip.sig">Signatur</fork><br/> KBVT 0.6.2 benutzt ein
+      gegenüber Version 0.5.x verändertes Datenbankschema. Das alte
+      Datenbankschema kann ohne Datenverlust konvertiert werden. Für
+      Benutzer, die Ihr altes Datenbankschema nicht konvertieren möchten, wird
+      zusätzlich KBVT 0.5.5 weiterhin zum Download angeboten.
+    </p>
+    </section>
+    <section><title>KBVT 0.5.5</title>
+    <p>
+      <fork href="kbvt-0.5.5.zip">KBVT 0.5.5 (2.2 MB)</fork> - 
+      <fork href="kbvt-0.5.5.zip.sig">Signatur</fork>
+    </p>
+    </section>
+  </body> 
+</document>

@@ -1,0 +1,40 @@
+<AusgabeKonfiguration>
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfAufkleber.PdfBenutzerausweisAusgabenFactory">
+        <Ordner>/</Ordner>
+    </AusgabenFactory>
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfTeilnehmerlisteAusgabenFactory">
+        <Ordner>/</Ordner>
+    </AusgabenFactory>
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfMahnungsListe.PdfMahnungslisteAusgabenFactory">
+        <Ordner>Mahnungen</Ordner>
+        <Parameter name="MindestUeberziehungInWochen">2</Parameter>
+        <Parameter name="MindestUeberziehungInWochen">5</Parameter>
+    </AusgabenFactory>
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfAusleihStatistik.PdfAusleihstatistikAusgabenFactory">
+        <Ordner>Ausleihstatistiken (detailiert)</Ordner>
+        <Parameter name="Statistik">einstellungen/AusleihStatistikDetailiert.conf</Parameter>
+    </AusgabenFactory>
+
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfJahresStatistik.PdfJahresstatistikAusgabenFactory">
+        <Ordner>Jahresstatistiken</Ordner>
+        <Parameter name="AusleihStatistik">einstellungen/AusleihStatistik.conf</Parameter>
+        <Parameter name="BestandStatistik">einstellungen/JahresStatistikBestand.conf</Parameter>
+    </AusgabenFactory>
+
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfAusleihStatistik.PdfAusleihstatistikAusgabenFactory">
+        <Ordner>Ausleihstatistiken</Ordner>
+        <Parameter name="Statistik">einstellungen/AusleihStatistik.conf</Parameter>
+    </AusgabenFactory>
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfInternetStatistik.PdfInternetstatistikAusgabenFactory">
+        <Ordner>Internetstatistiken</Ordner>
+    </AusgabenFactory>
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfMedienListe.PdfMedienlisteAusgabenFactory">
+        <Ordner>/</Ordner>
+    </AusgabenFactory>
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfAufkleber.PdfMedienaufkleberAusgabenFactory">
+        <Ordner>/</Ordner>
+    </AusgabenFactory>
+    <AusgabenFactory class="de.oberbrechen.koeb.pdf.pdfAktuelleAusleihenListe.PdfAktuelleAusleihenListeAusgabenFactory">
+        <Ordner>/</Ordner>
+    </AusgabenFactory>    
+</AusgabeKonfiguration>

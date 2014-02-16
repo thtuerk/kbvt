@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+Forrest site.xml
+
+This file contains an outline of the site's information content.  It is used to:
+- Generate the website menus (though these can be overridden - see docs)
+- Provide semantic, location-independent aliases for internal 'site:' URIs, eg
+<link href="site:changes"> links to changes.html (or ../changes.html if in
+  subdir).
+- Provide aliases for external URLs in the external-refs section.  Eg, <link
+  href="ext:cocoon"> links to http://xml.apache.org/cocoon/ 
+
+See http://xml.apache.org/forrest/linking.html for more info
+-->
+
+<site label="KBVT" href="" xmlns="http://apache.org/forrest/linkmap/1.0">
+
+  <about label="KBVT">
+    <allgemeines label="Allgemeines" href="index.html"/>
+    <aktuelles label="Aktuelles" href="aktuelles.html"/>
+    <license label="Lizenz" href="license.html"/>
+    <features label="Features" href="features.html"/>
+    <download label="Downloads" href="downloads.html"/>
+    <installation label="Installation" href="installation.html"/>
+    <hilfe label="Hilfe gesucht" href="hilfe.html"/>
+    <todo label="ToDo-Liste" href="zutun.html"/>
+    <links label="Links" href="links.html"/>
+    <danke label="Danke" href="danke.html"/>
+    <faq label="FAQ" href="faq.html"/>
+
+    <downloadBinary href="kbvt-0.6.1.zip"/>
+  </about>
+
+  <external-refs>
+     <koeb-oberbrechen href="http://www.koeb-oberbrechen.de"/>
+     <MySQL href="http://www.mysql.org"/>
+     <itext href="http://www.lowagie.com/iText/" />
+     <kunststoff href="http://www.incors.org/"/>
+     <GPL href="http://www.gnu.org/licenses/gpl.html"/>
+     <GPLger href="http://www.gnu.de/gpl-ger.html"/>
+     <gnu href="http://www.gnu.org"/>
+     <jcalendar href="http://www.toedter.com"/>
+     <nanoxml href="http://web.wanadoo.be/cyberelf/nanoxml/"/>
+     <ant href="http://ant.apache.org" />
+     <java href="http://java.sun.com" />
+     <bvs href="http://ibtc.biz" />
+     <apache href="http://www.apache.org"/>
+     <eclipse href="http://www.eclipse.org"/>
+     <jacc href="http://www.cse.ogi.edu/~mpj/jacc/"/>
+     <jflex href="http://jflex.de/"/>
+     <koha href="http://www.koha.org/" />
+  </external-refs>
+
+</site>

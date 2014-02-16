@@ -1,0 +1,95 @@
+INSTALLATION
+------------
+
+Um KBVT verwenden zu können, benötigen Sie MySQL und Java für ihre
+Plattform. Außerdem ist Ant hilfreich, aber nicht notwendig. KBVT wird
+zur Zeit mit Sun-Java 1.4.2 entwickelt und benutzt MySQL in der
+Version 4.0.15. KBVT wird jedoch auch erfolgreich mit älteren Java-
+und MySQL-Versionen eingesetzt.  Im Folgenden wird vorausgesetzt, dass
+Java und MySQL ordnungsgemäß installiert sind. Hilfe bei der
+Installation gibt es auf den entsprechenden Internetseiten
+(http://www.mysql.org, http://java.sun.com).
+
+KBVT inklusive aller benötigten Libraries können Sie unter 
+http://kbvt.koeb-oberbrechen.de herunterladen. Nach dem Entpacken muss 
+die Datenbank eingerichtet werden. Spielen Sie hierzu die Datei 
+leere_Datenbank.sql in Ihr MySQL ein (üblicherweise mittels 
+"mysql < leere_Datenbank.sql"). Bei Problemen finden Sie Hilfe 
+in der MySQL-Dokumentation. Erfahrene Benutzer mit SQL-Kenntnissen können 
+vorher evtl. den zu verwendenden Datenbank-Namen ändern. 
+Anschließend muss in der Datei einstellungen.conf eingestellt werden, 
+wie die Datenbank angesprochen werden kann. Hier muss der Server, 
+auf dem sich die Datenbank befindet, der Datenbankname und evtl. 
+der Benutzername und das
+Passwort für den Zugriff auf die Datenbank eingegeben werden. Diese
+Einstellungen hängen von Ihrer MySQL-Installation ab. Wenn Sie MySQL
+auf dem gleichen Rechner wie KBVT installiert haben und den
+Datenbanknamen nicht geändert haben, müssen Sie die Datei
+einstellungen.conf nicht editieren. Anschließend ist KBVT bereit für
+den ersten Start.
+    
+
+START 
+----- 
+
+Sie können die einzelnen Teilanwendungen mittels startAusleihe,
+startBestand, startAusgaben, startVeranstaltungen und startAdmin
+starten. Hierbei wird aber vorausgesetzt, dass Java in Ihrem PATH
+enthalten ist. Bei Problemen muss also evtl.  Java in den PATH
+aufgenommen oder die Skripte angepasst werden. Außerdem ist ein Start
+per Ant möglich. Dieser Weg bietet den Vorteil, dass hierbei der
+Quellcode statt der vorkompilierten Version benutzt wird.  Der
+Standardmitarbeiter besitzt kein Passwort. Die beim Start erscheinende
+Benutzerauswahl können Sie also - ohne Eingabe eines Passwortes - mit
+OK beenden. Anschließend erscheinen beim ersten Start viele
+Warnmeldungen, dass einige Einstellungen nicht gefunden wurden und
+diese auf Standardwerte gesetzt werden. Diese Warnmeldungen sind für
+die spätere Konfiguration informativ, können aber ignoriert werden.
+    
+
+KONFIGURATION
+-------------
+
+Die Konfiguration des Systems erfolgt mittels des
+Administrationstools. Dieses kann durch startAdmin gestartet werden.
+Besonders interessant sind die Reiter "Konfigurierbare Bücherei /
+Ausleihordnung" und "Mitarbeiter". Hier können alle grundlegenden
+Einstellungen getroffen und die Mitarbeiter Ihrer Bücherei angelegt
+werden. Evtl. müssen Sie noch neue Medientypen ergänzen oder vorhanden
+löschen. Außerdem müssen Systematiken erstellt oder importiert
+werden. Die in der KöB-Oberbrechen benutzten Systematiken liegen zum
+Import als Datei bei.
+	
+Über den Reiter Einstellungen ist auch eine Konfiguration per Hand
+möglich. Einige wenige Parameter müssen leider noch hierüber
+eingestellt werden. 
+
+Zur Zeit muss für eine Standardinstallation nur der zu verwendende
+PDF-Viewer so konfiguriert werden. Ändern Sie hierzu die
+Einstellung"de.oberbrechen.koeb.pdf.PdfDokument.PDFViewer" Je nach
+Zusammenspiel zwischen MySQL und Java kann es nötig sein, in der
+Pfadangabe des Anzeigeprogramms Backslashs doppelt einzugeben.
+    
+Bei Problemen bei der Konfiguration stehe ich gerne zur Verfügung.
+
+
+DATENBANKUPDATE
+---------------
+
+Version 0.6 benutzt ein anderes Datenbankschema als die
+Vorgängerversionen. Alte Datenbestände können konvertiert
+werden. Vorher ist jedoch dringendst eine Datensicherung zu
+empfehlen. Ein Hauptgrund für die Veränderung des Datenbankschemas
+waren nämlich mögliche Datenbankinkonsistenzen, die nun - eine
+aktuelle MySQL-Version vorausgesetzt - automatisch verhindert
+werden. Solche Inkonsistenzen können zum Abbruch der Konvertierung
+führen. Daher und weil ich nicht für die fehlerfreie Implementierung
+der Übersetzung garantieren kann, ist eine vorherige Datensicherung
+wirklich dringst zu empfehlen.
+
+Das Update kann durch den Ant-Task "ConvertDatenbank" durchgeführt
+werden. Auf die Erstellung eines passenden Startskripts wurde bewußt
+verzichtet, damit unerfahrene Benutzer das Update nicht versehentlich
+starten. Erfahrene Benutzer können sich ein solches Skript
+selbstverständlich erstellen.
+    

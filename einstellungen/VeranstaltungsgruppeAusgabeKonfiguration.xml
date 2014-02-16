@@ -1,0 +1,29 @@
+<VeranstaltungsgruppeAusgabeKonfiguration>
+    <VeranstaltungsgruppeAusgabeFactory name="Teilnehmerliste mit Zusammenfassung" class="de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfTeilnehmerlisteVeranstaltungsgruppeAusgabeFactory">
+    	<Parameter name="zeigeZusammenfassung">true</Parameter>
+    </VeranstaltungsgruppeAusgabeFactory>
+    <VeranstaltungsgruppeAusgabeFactory name="Teilnehmerliste ohne Zusammenfassung" class="de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfTeilnehmerlisteVeranstaltungsgruppeAusgabeFactory">
+    	<Parameter name="zeigeZusammenfassung">false</Parameter>
+    </VeranstaltungsgruppeAusgabeFactory>        
+
+    <VeranstaltungsgruppeAusgabeFactory name="Teilnehmerliste mit Zusammenfassung - QUER" class="de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfTeilnehmerlisteVeranstaltungsgruppeAusgabeFactory">
+    	<Parameter name="zeigeZusammenfassung">true</Parameter>
+    	<Parameter name="querFormat">true</Parameter>
+    </VeranstaltungsgruppeAusgabeFactory>
+    <VeranstaltungsgruppeAusgabeFactory name="Teilnehmerliste ohne Zusammenfassung - QUER" class="de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfTeilnehmerlisteVeranstaltungsgruppeAusgabeFactory">
+    	<Parameter name="zeigeZusammenfassung">false</Parameter>
+    	<Parameter name="querFormat">true</Parameter>
+    </VeranstaltungsgruppeAusgabeFactory>        
+    
+    <VeranstaltungsgruppeAusgabeFactory name="Teilnehmerübersicht" class="de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfTeilnehmerUebersichtVeranstaltungsgruppeAusgabeFactory">
+    </VeranstaltungsgruppeAusgabeFactory>
+    
+    <VeranstaltungsgruppeAusgabeFactory name="Veranstaltungsübersicht mit Bemerkungen" class="de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfVeranstaltungsUebersichtVeranstaltungsgruppeAusgabeFactory">
+    	<Parameter name="zeigeBemerkungen">true</Parameter>
+    </VeranstaltungsgruppeAusgabeFactory>
+
+    <VeranstaltungsgruppeAusgabeFactory name="Veranstaltungsübersicht ohne Bemerkungen" class="de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfVeranstaltungsUebersichtVeranstaltungsgruppeAusgabeFactory">
+    	<Parameter name="zeigeBemerkungen">false</Parameter>
+    </VeranstaltungsgruppeAusgabeFactory>
+
+</VeranstaltungsgruppeAusgabeKonfiguration>

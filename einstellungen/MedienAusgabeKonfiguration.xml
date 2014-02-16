@@ -1,0 +1,14 @@
+<MedienAusgabeKonfiguration>
+    <MedienAusgabeFactory class="de.oberbrechen.koeb.pdf.pdfAufkleber.PdfMedienaufkleberMedienAusgabeFactory">
+		<Parameter name="klein">false</Parameter>
+    </MedienAusgabeFactory>
+    <MedienAusgabeFactory class="de.oberbrechen.koeb.pdf.pdfAufkleber.PdfMedienaufkleberMedienAusgabeFactory">
+		<Parameter name="klein">true</Parameter>
+    </MedienAusgabeFactory>
+    <MedienAusgabeFactory class="de.oberbrechen.koeb.pdf.pdfMedienListe.PdfMedienlisteMedienAusgabeFactory">
+		<Parameter name="detailliert">false</Parameter>
+    </MedienAusgabeFactory>
+    <MedienAusgabeFactory class="de.oberbrechen.koeb.pdf.pdfMedienListe.PdfMedienlisteMedienAusgabeFactory">
+		<Parameter name="detailliert">true</Parameter>
+    </MedienAusgabeFactory>
+</MedienAusgabeKonfiguration>

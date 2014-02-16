@@ -1,0 +1,160 @@
+%package de.oberbrechen.koeb.dateien.auswahlKonfiguration
+
+%{
+import java.util.*;
+%}
+
+%token '&' '|' '!' '(' ')' ';' ':' ','
+%token GDW IMPLIES EINDEUTIG
+%token TRUE FALSE IDENTIFIER
+
+%token GEQ LEQ
+%token EQ NEQ
+%token GREATER LESS
+
+%token NUM INTEGER STRING
+%token AUSGABE CHECK
+
+
+%token MEDIUM_MEDIENTYP
+%token MEDIUM_SYSTEMATIK
+%token MEDIUM_KEINE_SYSTEMATIK
+%token MEDIUM_KEINE_BESCHREIBUNG
+%token MEDIUM_IST_IN_BESTAND
+%token MEDIUM_EINSTELLUNGSDAUER_TAGE
+%token AUSLEIHE_BENUTZERALTER
+%token AUSLEIHE_NICHT_EINGESTELLTES_MEDIUM
+
+%token BENUTZER_BENUTZERALTER
+%token BENUTZER_ANMELDEDAUER_TAGE
+%token BENUTZER_ANMELDEDAUER_JAHRE
+
+%nonassoc GDW
+%nonassoc IMPLIES
+%left  '|'
+%left  '&'
+%left  '!'
+
+%%
+
+prog : prog befehl     
+     | befehl          
+     ;
+
+befehl : labeled_definition ';'                           
+  | CHECK '(' STRING ')' definition ';'               { CheckAuswahl erg = new CheckAuswahl((String) $3, (Auswahl) $5); 
+                                                    checks.add(erg); }
+  | AUSGABE '(' STRING ',' INTEGER ')' definition ';' { AusgabeAuswahl erg = new AusgabeAuswahl((String) $3, ((Integer) $5).intValue(), (Auswahl) $7); 
+                                                    ausgaben.add(erg); }
+  | AUSGABE '(' STRING ')' definition ';'             { AusgabeAuswahl erg = new AusgabeAuswahl((String) $3, 0, (Auswahl) $5); 
+                                                        ausgaben.add(erg); }
+  ;
+  
+definition : labeled_definition   { $$ = $1; }
+           | ':' ausdruck         { $$ = $2; }
+           ;
+
+labeled_definition : IDENTIFIER ':' ausdruck   { putAuswahl((String) $1, (Auswahl) $3); 
+                                                 $$ = $3;
+                                               }
+           ;
+
+ausdruck : ausdruck '&' ausdruck	       { $$ = Auswahl.createANDAuswahl((Auswahl) $1, (Auswahl) $3); }
+         | ausdruck '|' ausdruck	       { $$ = Auswahl.createORAuswahl((Auswahl) $1, (Auswahl) $3); }
+         | '!' ausdruck	                   { $$ = Auswahl.createNOTAuswahl((Auswahl) $2); }
+         | ausdruck GDW ausdruck	       { $$ = Auswahl.createGDWAuswahl((Auswahl) $1, (Auswahl) $3); }
+         | ausdruck IMPLIES ausdruck       { $$ = Auswahl.createIMPLIESAuswahl((Auswahl) $1, (Auswahl) $3); }
+         | EINDEUTIG '(' ausdruckliste ')' { $$ = Auswahl.createEINDEUTIGAuswahl((Auswahl[]) ((Vector) $3).toArray(new Auswahl[0])); }
+         | '(' ausdruck ')'      	       { $$ = $2; }
+         | atom                            { $$ = $1; }         
+         ;
+
+ausdruckliste : ausdruckliste ',' ausdruck { ((Vector) $1).add($3);
+			                                 $$ = $1; }
+              | ausdruck                   { Vector erg = new Vector();
+              								 erg.add($1);
+              								 $$ = erg;}
+              ;
+
+stringliste : stringliste ',' STRING       { ((Vector) $1).add($3);
+			                                 $$ = $1; }
+              | STRING                     { Vector erg = new Vector();
+              								 erg.add($1);
+              								 $$ = erg;}
+              ;
+
+            
+atom : TRUE                                        { $$ = Auswahl.createTRUEAuswahl();}
+     | FALSE                                       { $$ = Auswahl.createFALSEAuswahl();}
+     | IDENTIFIER                                  { $$ = Auswahl.createREFERENZAuswahl(getAuswahl((String) $1));}
+     | MEDIUM_MEDIENTYP '(' stringliste ')'        { $$ = Auswahl.createMedientypAuswahl((String[]) ((Vector) $3).toArray(new String[0]));}
+     | MEDIUM_IST_IN_BESTAND '(' ')'               { $$ = Auswahl.createMedienInBestandAuswahl();}
+     | MEDIUM_SYSTEMATIK '(' stringliste ')'       { $$ = Auswahl.createSystematikAuswahl((String[]) ((Vector) $3).toArray(new String[0]));}
+     | MEDIUM_KEINE_SYSTEMATIK '(' ')'             { $$ = Auswahl.createKeineSystematikAuswahl();}
+     | MEDIUM_KEINE_BESCHREIBUNG '(' ')'           { $$ = Auswahl.createKeineBeschreibungAuswahl();}
+     | AUSLEIHE_NICHT_EINGESTELLTES_MEDIUM '(' ')' { $$ = Auswahl.createNICHT_EINGESTELLTES_MEDIUMAuswahl();}
+     | zahl GEQ zahl                               { $$ = Auswahl.createGEQ_ZAHLAuswahl((AuswahlWert) $1, (AuswahlWert) $3);}
+     | zahl LEQ zahl                               { $$ = Auswahl.createGEQ_ZAHLAuswahl((AuswahlWert) $3, (AuswahlWert) $1);}
+     | zahl GREATER zahl                           { $$ = Auswahl.createGREATER_ZAHLAuswahl((AuswahlWert) $1, (AuswahlWert) $3);}
+     | zahl LESS zahl                              { $$ = Auswahl.createGREATER_ZAHLAuswahl((AuswahlWert) $3, (AuswahlWert) $1);}
+     | zahl EQ zahl                                { $$ = Auswahl.createEQ_ZAHLAuswahl((AuswahlWert) $1, (AuswahlWert) $3);}
+     | zahl NEQ zahl                               { $$ = Auswahl.createNEQ_ZAHLAuswahl((AuswahlWert) $1, (AuswahlWert) $3);}
+     ;
+
+zahl : NUM                                   { $$ = new AuswahlWert(AuswahlWert.ZAHL, $1);}
+     | INTEGER                               { $$ = new AuswahlWert(AuswahlWert.ZAHL, new Double(((Integer) $1).doubleValue()));}
+     | AUSLEIHE_BENUTZERALTER '(' ')'        { $$ = new AuswahlWert(AuswahlWert.AUSLEIHE_BENUTZERALTER);}
+     | MEDIUM_EINSTELLUNGSDAUER_TAGE '(' ')' { $$ = new AuswahlWert(AuswahlWert.MEDIUM_EINSTELLUNGSDAUER_TAGE);}
+     | BENUTZER_BENUTZERALTER '(' ')'        { $$ = new AuswahlWert(AuswahlWert.BENUTZER_BENUTZERALTER);}
+     | BENUTZER_ANMELDEDAUER_TAGE '(' ')'    { $$ = new AuswahlWert(AuswahlWert.BENUTZER_ANMELDEDAUER_TAGE);}
+     | BENUTZER_ANMELDEDAUER_JAHRE '(' ')'   { $$ = new AuswahlWert(AuswahlWert.BENUTZER_ANMELDEDAUER_JAHRE);}
+     ;
+     
+%%
+  private AuswahlKonfigurationLexer lexer;
+
+  Vector ausgaben = new Vector();
+  Vector checks = new Vector();
+  Hashtable definitionen = new Hashtable();  
+
+  private Auswahl getAuswahl(String string) {
+    Auswahl erg = (Auswahl) definitionen.get(string);
+    if (erg == null)
+      yyerror("Unbekannter Identifier '"+string+"'!");
+    return erg;
+  }
+  
+  private void putAuswahl(String string, Auswahl auswahl) {
+    boolean already_defined = definitionen.containsKey(string);
+    if (already_defined)
+      yyerror("Doppelt definierter Identifierer '"+string+"'!");
+	definitionen.put(string, auswahl);
+  }
+
+  public AuswahlKonfigurationParser(java.io.Reader reader) { 
+    this.lexer = new AuswahlKonfigurationLexer(reader); 
+    lexer.nextToken();
+  } 
+
+  public AuswahlKonfigurationParser(java.io.InputStream input) { 
+    this.lexer = new AuswahlKonfigurationLexer(input); 
+    lexer.nextToken();
+  }
+
+  void yyerror(String error) {	
+	throw new ParseException("Fehler bei Zeile "+(lexer.getLine()+1)+", Spalte "+(lexer.getColumn()+1)+"!\n"+error);
+  }
+  
+  void yyerror(Exception e) {	
+	throw new ParseException("Fehler bei Zeile "+(lexer.getLine()+1)+", Spalte "+(lexer.getColumn()+1)+"!\n"+e.getMessage());
+  }  
+  
+  public boolean parseWithExceptions() {
+  	try{
+      return parse();
+  	} catch(Exception e) {
+  	  yyerror(e);
+  	}
+  	return false;
+  }
+  

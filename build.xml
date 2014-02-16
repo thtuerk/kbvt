@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<project name="KBVT" default="Run_Ausleihe" basedir=".">
+
+  <property name="source-dir" value="src" />
+  <property name="source-dir-anpassungen" value="src-anpassungen" />
+  <property name="source-dir-tools" value="src-tools" />
+  <property name="build-dir-tools" value="bin-tools" />
+  <property name="build-dir-anpassungen" value="bin-anpassungen" />
+  <property name="build-dir" value="bin" />
+  <property name="doc-dir" value="doc/api" />
+  <property name="lib-dir" value="lib" />
+  <property name="zip-dir" value="zip" />
+  <property name="jar-dir" value="jar" />
+  <property name="jarbuild-dir" value="jarbuild" />
+  <property name="releasebuild-dir" value="releasebuild" />
+  <property name="release-dir" value="versions" />
+  <property name="releaseprepare-dir" value="release" />
+  <path id="classpath">
+	<pathelement path="${build-dir-tools}"/>
+	<pathelement path="${source-dir-tools}"/>
+	<pathelement path="${build-dir}"/>
+	<pathelement path="${source-dir}"/>
+	<pathelement path="${source-dir-anpassungen}"/>
+    <pathelement path="${lib-dir}/Acme-Servlet.jar"/>
+	<pathelement path="${lib-dir}/kunststoff.jar"/>
+	<pathelement path="${lib-dir}/mysql-connector-java.jar"/>
+	<pathelement path="${lib-dir}/jcalendar.jar"/>
+	<pathelement path="${lib-dir}/iText.jar"/>
+	<pathelement path="${lib-dir}/nanoxml-2.2.3.jar"/>
+	<pathelement path="${lib-dir}/EasySMTPConnection.jar"/>
+  </path>
+  <path id="classpathJar">
+    <pathelement path="${source-dir-anpassungen}"/>
+    <pathelement path="${lib-dir}/Acme-Servlet.jar"/>
+    <pathelement path="${lib-dir}/kunststoff.jar"/>
+    <pathelement path="${lib-dir}/mysql-connector-java.jar"/>
+    <pathelement path="${lib-dir}/jcalendar.jar"/>
+    <pathelement path="${lib-dir}/iText.jar"/>
+    <pathelement path="${lib-dir}/nanoxml-2.2.3.jar"/>
+    <pathelement path="${lib-dir}/EasySMTPConnection.jar"/>
+    <pathelement path="${jar-dir}/kbvt.jar"/>
+  </path>
+
+  <target name="Run_Ausleihe" depends="compile" >
+    <java classname="de.oberbrechen.koeb.gui.ausleihe.Main" fork="yes">
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+  <target name="Convert_Datenbank" depends="compile" >
+    <java classname="de.oberbrechen.koeb.datenbankzugriff.mysql.datenbankupdate.Datenbankupdate" fork="yes">
+    	<classpath refid="classpath"/>
+    	<arg value="2"/>
+    </java>
+  </target>
+
+  <target name="Convert_Datenbank_2" depends="compile" >
+    <java classname="de.oberbrechen.koeb.datenbankzugriff.mysql.datenbankupdate.Datenbankupdate" fork="yes">
+    	<classpath refid="classpath"/>
+    	<arg value="3"/>
+    </java>
+  </target>
+
+	<target name="Run_Admin" depends="compile" >
+    <java classname="de.oberbrechen.koeb.gui.admin.Main" fork="yes">
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+  <target name="Profile_Ausgaben" depends="compile" >
+    <java classname="de.oberbrechen.koeb.gui.ausgaben.Main" fork="yes">
+      <jvmarg line="-Xrunhprof:cpu=old"/>
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+  <target name="Profile_Main" depends="compile" >
+    <java classname="de.oberbrechen.koeb.Main" fork="yes">
+      <jvmarg line="-Xrunhprof:cpu=old"/>
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+  <target name="Run_Ausgaben" depends="compile" >
+    <java classname="de.oberbrechen.koeb.gui.ausgaben.Main" fork="yes">
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+    <target name="Server_Ausgaben" depends="compile" >
+      <java classname="de.oberbrechen.koeb.server.ausgaben.Main" fork="yes">
+        <classpath refid="classpath"/>
+      </java>
+    </target>
+
+    <target name="Run_Bestand" depends="compile" >
+    <java classname="de.oberbrechen.koeb.gui.bestand.Main" fork="yes">
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+  <target name="Run_Main" depends="compile" >
+    <java classname="de.oberbrechen.koeb.Main" fork="yes">
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+  <target name="Run_Veranstaltungen" depends="compile" >
+    <java classname="de.oberbrechen.koeb.gui.veranstaltungen.Main" fork="yes">
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+  <target name="clean">
+    <delete dir="${build-dir}" />
+    <delete dir="${doc-dir}" />
+  </target>
+
+  <target name="cleanTools">
+    <delete dir="${build-dir-tools}" />
+  </target>
+
+  <target name="cleanAnpassungen">
+     <delete dir="${build-dir-anpassungen}" />
+  </target>
+
+  <target name="cleanParser">
+    <delete file="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration/AuswahlKonfigurationLexer.java" />  
+    <delete file="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration/AuswahlKonfigurationParser.java" />  
+    <delete file="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration/AuswahlKonfigurationTokens.java" />  
+  </target>
+
+  <target name="initParser">
+	<uptodate property="createParser" targetfile="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration/AuswahlKonfiguration.jacc">
+	  <srcfiles dir="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration" includes="AuswahlKonfigurationParser.java, AuswahlKonfigurationTokens.java"/>  
+	</uptodate>
+	<uptodate property="createParser" targetfile="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration/AuswahlKonfiguration.flex">
+	  <srcfiles dir="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration" includes="AuswahlKonfigurationParser.java, AuswahlKonfigurationLexer.java"/>  
+	</uptodate>
+  </target>
+  
+  <target name="createParser" if="createParser">
+    <antcall target="cleanParser" />
+    <exec executable="jacc" dir="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration">
+      <arg line="AuswahlKonfiguration.jacc" />
+    </exec>
+    <exec executable="jflex" dir="${source-dir}/de/oberbrechen/koeb/dateien/auswahlKonfiguration">
+      <arg line="AuswahlKonfiguration.flex" />
+    </exec>
+  </target>  
+  
+  <target name="parser" depends="initParser, createParser"/>
+
+  <target name="jar" depends="clean, compile">
+    <tstamp/>
+    <delete dir="${jarbuild-dir}" />
+    <mkdir dir="${jarbuild-dir}" />
+    <copy todir="${jarbuild-dir}">
+      <fileset dir="${build-dir}" includes="**/*.class" />
+      <fileset dir="${source-dir}" includes="**/*.png" />
+      <fileset dir="${source-dir}" includes="**/*.txt" />
+      <fileset dir="${source-dir}" includes="**/*.properties" />
+      <fileset dir="${source-dir-anpassungen}" includes="**/*.png" />
+      <fileset dir="${source-dir-anpassungen}" includes="**/*.txt" />
+    </copy>
+
+    <mkdir dir="${jar-dir}" />
+    <jar jarfile="${jar-dir}/${DSTAMP}-${TSTAMP}.jar" basedir="${jarbuild-dir}" />
+    <copy file="${jar-dir}/${DSTAMP}-${TSTAMP}.jar" tofile="${jar-dir}/kbvt.jar"/>
+    <delete dir="${jarbuild-dir}" />
+  </target>
+
+  <target name="jarTools" depends="cleanTools, compileTools">
+    <tstamp/>
+    <delete dir="${jarbuild-dir}"/>
+    <mkdir dir="${jarbuild-dir}" />
+    <copy todir="${jarbuild-dir}">
+      <fileset dir="${build-dir-tools}" includes="**/*.class" />
+      <fileset dir="${source-dir-tools}">
+          <include name="**/*"/>
+          <exclude name="**/*.java"/>
+      </fileset>
+    </copy>
+
+    <mkdir dir="${jar-dir}" />
+    <jar jarfile="${jar-dir}/Tools-${DSTAMP}-${TSTAMP}.jar" basedir="${jarbuild-dir}" />
+    <copy file="${jar-dir}/Tools-${DSTAMP}-${TSTAMP}.jar" tofile="${jar-dir}/tools.jar"/>
+    <delete dir="${jarbuild-dir}" />
+  </target>
+
+    <target name="jarAnpassungen" depends="cleanAnpassungen, compileAnpassungen">
+	  <tstamp/>
+	  <delete dir="${jarbuild-dir}"/>
+	  <mkdir dir="${jarbuild-dir}" />
+	  <copy todir="${jarbuild-dir}">
+	    <fileset dir="${build-dir-anpassungen}" includes="**/*.class" />
+	    <fileset dir="${source-dir-anpassungen}">
+	        <include name="**/*"/>
+	        <exclude name="**/*.java"/>
+	    </fileset>
+	  </copy>
+	
+	  <mkdir dir="${jar-dir}" />
+	  <jar jarfile="${jar-dir}/kbvt-Anpassungen-${DSTAMP}-${TSTAMP}.jar" basedir="${jarbuild-dir}" />
+	  <copy file="${jar-dir}/kbvt-Anpassungen-${DSTAMP}-${TSTAMP}.jar" tofile="${jar-dir}/kbvt-Anpassungen.jar"/>
+	  <delete dir="${jarbuild-dir}" />
+	</target>
+    
+    <target name="release" depends="jar,jarAnpassungen">
+    <tstamp/>
+    <delete dir="${releasebuild-dir}" />
+    <mkdir dir="${releasebuild-dir}" />
+    <mkdir dir="${releasebuild-dir}/src" />
+    <copy todir="${releasebuild-dir}/src">
+      <fileset dir="${source-dir}" includes="**/*.png" />
+      <fileset dir="${source-dir}" includes="**/*.txt" />
+      <fileset dir="${source-dir}" includes="**/*.java" />
+      <fileset dir="${source-dir}" includes="**/*.flex" />
+      <fileset dir="${source-dir}" includes="**/*.jacc" />
+    </copy>
+    
+    <copy todir="${releasebuild-dir}">
+      <fileset dir="${releaseprepare-dir}"/>
+    </copy>
+    
+    <taskdef name="concatFile" classname="de.tuerk.ant.ConcatFile"/>
+    <concatFile concatFile="header.txt">
+      <fileset dir="${releasebuild-dir}/src" includes="**/*.java" />
+    </concatFile>
+    
+    <mkdir dir="${releasebuild-dir}/lib" />
+    <copy file="${jar-dir}/kbvt.jar" tofile="${releasebuild-dir}/lib/kbvt.jar"/>
+    <copy file="${jar-dir}/kbvt-Anpassungen.jar" tofile="${releasebuild-dir}/lib/kbvt-Anpassungen.jar"/>
+
+    <mkdir dir="${release-dir}" />
+    <zip zipfile="${release-dir}/${DSTAMP}-${TSTAMP}.zip" basedir="${releasebuild-dir}" />    
+    <copy file="${release-dir}/${DSTAMP}-${TSTAMP}.zip" tofile="${release-dir}/kbvt.zip"/>    
+    <delete dir="${releasebuild-dir}" />
+  </target>
+
+  <target name="compile">
+    <mkdir dir="${build-dir}" />
+    <javac destdir="${build-dir}" encoding="utf8" debug="on">
+      <compilerarg value="-Xlint"/>
+      <classpath refid="classpath"/>
+      <src path="${source-dir}"/>	
+      <src path="${source-dir-anpassungen}"/>	
+    </javac>
+  </target>
+
+  <target name="compileTools" depends="compile">
+    <mkdir dir="${build-dir-tools}" />
+    <javac destdir="${build-dir-tools}" encoding="utf8" debug="on">	  
+      <classpath refid="classpath"/>
+      <src path="${source-dir-tools}"/>
+    </javac>
+  </target>
+
+    <target name="compileAnpassungen" depends="compile">
+      <mkdir dir="${build-dir-anpassungen}" />
+      <javac destdir="${build-dir-anpassungen}" encoding="utf8" debug="on">     
+        <classpath refid="classpathJar"/>
+        <src path="${source-dir-anpassungen}"/>
+      </javac>
+    </target>
+
+    <target name="javadoc">
+    <native2ascii src="${source-dir}" dest="${source-unicode-dir}"/>
+    <mkdir dir="${doc-dir}" />
+    <javadoc destdir="${doc-dir}"
+         packagenames="de.*"
+             author="true"
+             version="true"
+         encoding="iso-8859-1" >
+         <sourcepath>
+               <pathelement location="${source-unicode-dir}" />
+         </sourcepath>
+         
+      <classpath refid="classpath"/>
+    </javadoc>
+  </target>
+
+  <target name="Profile_Ausleihe" depends="compile" >
+    <java classname="de.oberbrechen.koeb.gui.ausleihe.Main" fork="yes">
+    <jvmarg line="-prof"/>
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+
+</project>

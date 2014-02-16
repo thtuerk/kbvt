@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Danke</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Danke für Unterstützung</abstract> 
+  </header> 
+  <body>
+    <p>Ich möchte mich hiermit bei allen bedanken, die direkt oder
+    indirekt bei der Entwicklung von KBVT geholfen haben. Besonders
+    möchte ich den Entwicklern der verwendeten Programme und
+    Bibliotheken danken. KBVT verwendet die folgenden Programme:
+    </p>
+    <ul>
+      <li><link href="ext:MySQL">MySQL</link> und den entsprechenden
+      JDBC-Treiber</li>
+      <li><link href="ext:itext">iText</link></li>
+      <li><link href="ext:kunststoff">Kunststoff Look And Feel</link></li>
+      <li><link href="ext:jcalendar">JCalendar</link></li>
+      <li><link href="ext:nanoxml">NanoXML</link></li>
+      <li><link href="ext:jacc">jacc - just another compiler compiler for Java</link></li>
+      <li><link href="ext:jflex">JFlex - The Fast Scanner Generator for Java</link></li>
+    </ul>
+  </body> 
+</document>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Installation</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Installation von KBVT</abstract> 
+  </header> 
+  <body>
+    <section><title>Installation</title>
+    <p>Um KBVT verwenden zu können, benötigen Sie <link
+       href="ext:MySQL">MySQL</link> und <link href="ext:java">Java</link>
+       für ihre Plattform. Außerdem ist <link href="ext:ant">Ant</link>
+       hilfreich, aber nicht notwendig. KBVT wird zur Zeit mit 
+       Sun-Java 1.4.2 entwickelt und benutzt MySQL in der Version 4.0.15.
+       KBVT wird jedoch auch erfolgreich mit älteren Java- und MySQL-Versionen
+       eingesetzt. 
+       Im Folgenden wird vorausgesetzt, dass Java und MySQL
+       ordnungsgemäß installiert sind. Hilfe bei der Installation gibt
+       es auf den entsprechenden Internetseiten.<br/>
+       KBVT inklusive aller benötigten Libraries können Sie <link
+       href="site:downloadBinary">hier</link> herunterladen. Nach dem
+       Entpacken muss die Datenbank eingerichtet werden. Spielen Sie
+       hierzu die Datei <code>leere_Datenbank.sql</code> in Ihr MySQL
+       ein (üblicherweise mittels <code>mysql &lt; 
+       leere_Datenbank.sql</code>). Bei Problemen finden Sie Hilfe in
+       der MySQL-Dokumentation. Erfahrene Benutzer mit SQL-Kenntnissen
+       können vorher evtl. den zu verwendenden Datenbank-Namen ändern. 
+       Anschließend muss in der Datei 
+       <code>einstellungen.conf</code> eingestellt werden, wie
+       die Datenbank angesprochen werden kann. Hier muss der Server, auf
+       dem sich die Datenbank befindet, der Datenbankname und evtl. der
+       Benutzername und das Passwort für den Zugriff auf die Datenbank
+       eingegeben werden. Diese Einstellungen hängen von Ihrer MySQL-Installation
+       ab. Wenn Sie MySQL auf dem gleichen Rechner wie KBVT installiert haben
+       und den Datenbanknamen nicht geändert haben, müssen Sie die Datei
+       <code>einstellungen.conf</code> nicht editieren. Anschließend ist KBVT
+       bereit für den ersten Start.
+    </p></section>
+    <section><title>Start</title>
+    <p>Sie können die einzelnen Teilanwendungen mittels
+    <code>startAusleihe</code>, <code>startBestand</code>,
+    <code>startAusgaben</code>, <code>startVeranstaltungen</code> 
+    und <code>startAdmin</code> 
+    starten. Hierbei wird aber vorausgesetzt, dass Java in
+    Ihrem <code>PATH</code> enthalten ist. Bei Problemen muss also evtl. 
+    Java in den <code>PATH</code> aufgenommen oder die Skripte
+    angepasst werden. Außerdem ist ein Start per Ant möglich. Dieser
+    Weg bietet den Vorteil, dass hierbei der Quellcode statt der 
+    vorkompilierten Version benutzt wird. 
+    <br/>Der Standardmitarbeiter besitzt kein
+    Passwort. Die beim Start erscheinende Benutzerauswahl können Sie
+    also - ohne Eingabe eines Passwortes - mit <code>OK</code>
+    beenden. Anschließend erscheinen beim ersten Start viele
+    Warnmeldungen, dass einige Einstellungen nicht gefunden wurden und
+    diese auf Standardwerte gesetzt werden. Diese Warnmeldungen sind
+    für die spätere Konfiguration informativ, können 
+    aber ignoriert werden.    
+    </p></section>
+    <section><title>Konfiguration</title>
+    <p>Die Konfiguration des Systems erfolgt mittels des Administrationstools.
+    Dieses kann durch <code>startAdmin</code> gestartet werden.
+    Besonders interessant sind die Reiter <code>Konfigurierbare Bücherei /
+    Ausleihordnung</code> und <code>Mitarbeiter</code>. Hier können alle
+    grundlegenden Einstellungen getroffen und die Mitarbeiter Ihrer Bücherei
+    angelegt werden. Evtl. müssen Sie noch neue Medientypen ergänzen oder 
+    vorhanden löschen. Außerdem müssen Systematiken erstellt oder importiert
+    werden. Die in der KöB-Oberbrechen benutzten Systematiken liegen zum
+    Import als Datei bei.
+	</p><p>
+	Über den Reiter <code>Einstellungen</code> ist auch eine Konfiguration per Hand möglich.
+	Einige wenige Parameter müssen leider noch hierüber eingestellt werden. 
+    Die wichtigsten Parameter sollen hier kurz erklärt werden. Die meisten
+    dieser Parameter sind aber bereits wie ober dargestellt veränderbar.    
+
+    Hier die wichtigsten Einstellungen:
+    </p>
+    <dl>
+      <dt>de.oberbrechen.koeb.einstellungen.KonfigurierbareAusleihordnung.mindestAusleihdauerInTagen.Medientyp</dt>
+      <dd>Bestimmt, wie lange ein Medium des entsprechenden Medientyps
+      mindestens ausgeliehen werden soll. Auf das aktuelle Datum
+      werden bei der Ausleihe diese Anzahl an Tagen addiert und dann
+      das nächste Datum, an dem die Bücherei geöffnet hat (s.u.) als
+      Sollrückgabedatum gewählt.</dd>
+      <dt>de.oberbrechen.koeb.einstellungen.KonfigurierbareAusleihordnung.mahngebuehrProMediumProWocheInEuro</dt>
+      <dd>Die Mahngebühr, die für ein überzogenes Medium pro Woche
+      berechnet wird.</dd>
+      <dt>de.oberbrechen.koeb.einstellungen.KonfigurierbareAusleihordnung.kulanzZeitInTagen</dt>
+      <dd>Bestimmt, ab welcher Mindestanzahl von überzogenen Tagen wird eine
+      Mahngebühr verlangt wird.</dd>
+      <dt>de.oberbrechen.koeb.einstellungen.KonfigurierbareBuecherei.istGeoeffnet.Wochentag</dt>
+      <dd>Gibt an, ob die Bücherei an diesem Wochentag geöffnet
+      hat.</dd>
+      <dt>de.oberbrechen.koeb.einstellungen.KonfigurierbareBuecherei.MediennrPraefix.Medientyp</dt>
+      <dd>Bestimmt, ob neu vergebene Mediennummern für diesen
+      Medientyp die Form <code>Präfix Jahr-Nr</code> oder <code>Präfix
+      Nr</code> besitzen. (Beispiel: <code>B 2003-21</code>, <code>CD
+      123</code>)</dd>
+      <dt>de.oberbrechen.koeb.einstellungen.KonfigurierbareBuecherei.MediennrPraefix.Medientyp</dt>
+      <dd>Der Präfix, der für neu vergebene Mediennummern für diesen
+      Medientyp verwendet werden soll.</dd>
+      <dt>de.oberbrechen.koeb.einstellungen.KonfigurierbareBuecherei.EANPraefix.Medientyp
+      </dt>
+      <dd>Ein Präfix für neu erstellte EAN-Codes. Dieser Präfix muss
+      aus 2 Ziffern bestehen und sich für alle Medientypen unterscheiden.</dd>
+      <dt>de.oberbrechen.koeb.pdf.PdfDokument.PDFViewer</dt>
+      <dd>Das Anzeigeprogramm für PDF-Dateien, dass an dem
+      entsprechenden Client verwendet werden soll. Eine PDF-Datei wird
+      dann versucht mittels <code>befehl PDF.pdf</code> anzuzeigen. Je nach
+      Zusammenspiel zwischen MySQL und Java kann es nötig sein,
+      in der Pfadangabe des Anzeigeprogramms Backslashs doppelt
+      einzugeben.</dd>
+    </dl>
+    <p>Zur Zeit muss für eine Standardinstallation nur der zu 
+    verwendende PDF-Viewer so konfiguriert werden. Für alle anderen 
+    wichtigen Einstellungen existiert bereits eine spezielle 
+    graphische Oberfläche.</p>
+    <p>Bei Problemen bei der Konfiguration stehe ich gerne zur Verfügung.</p>
+    </section>
+    <section><title>Datendankupdate</title>
+    <p>Version 0.6 benutzt ein anderes Datenbankschema als die
+    Vorgängerversionen. Alte Datenbestände können konvertiert
+    werden. Vorher ist jedoch dringendst eine Datensicherung zu
+    empfehlen. Ein Hauptgrund für die Veränderung des Datenbankschemas
+    waren nämlich mögliche Datenbankinkonsistenzen, die nun - eine
+    aktuelle MySQL-Version vorausgesetzt - automatisch verhindert
+    werden. Solche Inkonsistenzen können zum Abbruch der Konvertierung
+    führen. Daher und weil ich nicht für die fehlerfreie
+    Implementierung der Übersetzung garantieren kann, ist eine
+    vorherige Datensicherung wirklich dringst zu empfehlen.<br/> Das
+    Update kann durch den Ant-Task <code>ConvertDatenbank</code>
+    durchgeführt werden.  Auf die Erstellung eines passenden
+    Startskripts wurde bewußt verzichtet, damit unerfahrene Benutzer
+    das Update nicht versehentlich starten. Erfahrene Benutzer können
+    sich ein solches Skript selbstverständlich erstellen.
+    </p></section>
+  </body> 
+</document>

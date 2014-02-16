@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Lizenz</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Lizenz</abstract> 
+  </header> 
+  <body>
+     <p>KBVT ist freie Software. Sie können es unter den Bedingungen der 
+     <link href="ext:GPL">GNU General Public License (GNU GPL)</link>
+     (<link href="ext:GPLger">deutsche Übersetzung</link>), wie von
+     der Free Software Foundation veröffentlicht, weitergeben 
+     und/oder modifizieren, entweder gemäß Version 2 der Lizenz 
+     oder (nach Ihrer Option) jeder späteren Version.<br/>
+     
+     Die Veröffentlichung dieses Programms erfolgt in der Hoffnung,
+     dass es Ihnen von Nutzen sein wird, aber 
+     <strong>OHNE IRGENDEINE GARANTIE</strong>, sogar ohne die implizite 
+     Garantie der <strong>MARKTREIFE</strong> oder der 
+     <strong>VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK</strong>. 
+     Details finden Sie in der GNU General Public License. 
+     </p>
+  </body> 
+</document>

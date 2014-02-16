@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Allgemeines</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Allgemeine Informationen zu KBVT</abstract> 
+  </header> 
+  <body>
+    <p>KBVT ist ein Tool für kleinere und mittlere Büchereien. Unter anderem
+    ermöglicht es die Verwaltung des Bestandes, der Benutzer und ermöglicht
+    eine elektronische Ausleihe. Außerdem können Veranstaltungen und
+    Anmeldelisten verwaltet werden. Nähere Informationen sind unter <link
+    href="site:features">Features</link> zu finden.
+</p>
+<p>
+KBVT wird für die <link href="ext:koeb-oberbrechen">KöB Oberbrechen</link> von
+einem langjährigen Mitarbeiter entwickelt und speziell auf die Bedürfnisse
+dieser Bücherei angepasst. Einige besonders hervorzuhebende Eigenschaften
+sind:</p> 
+<ul> 
+  <li>Betriebssystem- und Rechnerarchitektur-Unabhängigkeit</li>
+  <li>leichte Anpassbarkeit, Erweiterbarkeit</li> 
+  <li>Netzwerkfähigkeit</li>
+  <li>Modularität</li>
+  <li>leichte Interaktion mit anderen Systemen</li>
+  <li>absolut kostenloses System</li>
+</ul>
+
+<section><title>Architektur</title>
+<p>Kern des Systems ist eine MySQL-Datenbank, auf die
+von mehreren JAVA-SWING-Oberflächen zugegriffen wird.
+Für den Benutzer interessant daran ist,
+dass man aus sehr vielen Programmen und aus so gut
+wie allen gängigen Programmiersprachen auf die Daten zugreifen kann.
+D.h. egal, ob sie mit Microsoft-Word einen Serienbrief an alle Leser
+schicken, aus ihrem Bestand automatisch per Perl-Script 
+HTML-Seiten generieren oder per
+PHP Besuchern Ihrer Internet-Seite das Durchsuchen Ihres 
+Bestandes erlauben wollen,
+all dies und vieles mehr ist leicht möglich. Außerdem 
+ist hierdurch auch ein Import und Export von Daten sehr einfach.
+So können vorhandene Daten leicht weiterverwendet werden.
+Desweiteren erleichtert diese Architektur durch die mit ihr verbundene
+Modularität den nur teilweisen Einsatz des Systems.
+So kann beispielsweise KBVT auch nur für die Verwaltung des Bestandes
+oder der Leser eingesetzt werden, ohne durch unnötig komplexe
+Benutzeroberflächen behindert zu werden.
+</p>
+</section>
+
+<section><title>Lizenz, Installation und Systemanforderungen</title>
+<p>KBVT ist OpenSource und steht unter der <link href="ext:GPL">GNU
+GPL</link>.  Es wird seit zwei Jahren in der KöB Oberbrechen eingesetzt und
+hat sich dort bewährt. Während dieser Zeit wurde KBVT ständig erweitert und
+befindet sich auch zur Zeit noch in Entwicklung. Es ist jedoch bereits ein
+Stand an Stabilität und Funktionsumfang erreicht, der einen Einsatz auch für
+andere Büchereien sinnvoll erscheinen lässt.  Hauptproblem ist die noch sehr
+spärliche Dokumentation und der Support. Generell ist die Installation und
+Administration nicht für gänzlich unerfahrene Computerbenutzer geeignet. 
+Dagegen soll die Benutzung
+von KBVT für unerfahrene Benutzer leicht möglich sein.<br/>
+In der KöB Oberbrechen wurde KBVT lange auf einem Pentium 100 mit 32 MB RAM unter SuSE Linux 7.1
+verwendet. Dies ist für sinnvolles Arbeiten gerade noch ausreichend, wenn man
+akzeptiert, dass ein Start von KBVT 2-3 Minuten und das Tätigen einer Ausleihe
+mittels des Barcode-Scanners ca. 1 Sekunde dauert. Dies ist zwar sehr langsam,
+aber immerhin noch schneller als das Tätigen einer Ausleihe ohne Computereinsatz. 
+Auf einem 500 MHz Prozessor mit 256 MB RAM unter Windows XP startet KBVT dagegen in ca. 10 Sekunden.
+KBVT ist auf allen Systemen
+lauffähig, für die eine Java-Implementierung existiert und eine
+MySQL-Datenbank zur Verfügung steht, d.h. insbesondere unter allen neueren Windows-Versionen und
+unter gängigen Linux-Distributionen.
+</p></section>
+
+<section><title>Zielgruppe</title>
+<p>
+KBVT kann und will nicht mit 
+kommerziellen Systemen wie z.B. <link href="ext:bvs">BVS</link>
+konkurrieren. Dies liegt zum einen daran, dass - wie beschrieben - 
+keine vergleichbare Dokumentation und sehr wenig Support 
+zur Verfügung steht. Es wird vorausgesetzt, dass in jeder Bücherei, die KBVT
+einsetzt, ein Administrator zur Verfügung steht, der sich um Installation,
+Anpassung an die Bedürfnisse der einzelnen Bücherei, Import und Export von
+Daten, Datensicherung, Update auf neue Versionen von KBVT und ähnliches
+kümmert. Dieser Administrator muss kein Experte sein, es ist aber notwendig,
+dass er sich mit KBVT und benutzten Programmen wie z.B. MySQL näher beschäftigt. 
+Es wurde bewusst darauf verzichtet, den Anwendern vorzugaukeln, dass 
+Aufgaben wie beispielsweise der Schutz vor Zugriff von Unbefugten auf
+die gespeicherten Daten ohne Beschäftigung mit KBVT und MySQL möglich ist.
+<br/>
+Eine weitere möglicherweise als Nachteil empfundene Eigenschaft von KBVT
+ist, dass es pragmatisch entwickelt wird. Zum Beispiel werden zu einem
+Medium nur Titel, Autor, Mediennummer, Einstellungsdatum, Medientyp,
+Systematiken, ISBN-Nummer und eine Beschreibung gespeichert. Auf weitere, sonst
+übliche Informationen wie Seitenanzahl, Auflage, Verlag,
+Orginalsprache usw. wurde bewusst verzichtet, da für die Zwecke 
+der KöB-Oberbrechen diese Informationen nicht nötig sind, aber bei der
+Eingabe viel Arbeit verursachen.
+<br/>
+Klarer Vorteil von KBVT ist die einfache graphische Benutzeroberfläche,
+die Betriebssystemunabhängigkeit und
+die leichte Konfigurierbarkeit und Erweiterbarkeit. 
+Ein Entwicklungsziel war es, dass KBVT auch von Nicht-Experten leicht erweitert und
+genau auf die Bedürfnisse einer speziellen Bücherei angepasst werden kann.
+Außerdem wurde versucht, das Rad nicht immer wieder neu zu erfinden. Statt
+für die Steuerung des Internetzugangs z.B. einen eigenen Browser und
+Web-Server anzubieten, wird stattdessen ein beliebiger Browser und der bekannte
+Proxy-Server Squid verwendet.
+</p>
+<p>
+KBVT ist also für kleinere und mittlere Büchereien geeignet, in denen ein
+Mitarbeiter zur Verfügung steht, der bereit ist, Zeit in die Einarbeitung und
+Administration von KBVT zu investieren. Vorteil gegenüber den meisten
+kommerziellen Lösungen ist die leichte Anpassbarkeit und die offenen
+Schnittstellen. Besonders Administratoren mit Programmiererfahrung werden dies
+zu schätzen wissen. Außerdem kann gerade für kleinere, ehrenamtlich
+geführte Büchereien die Kostenfrage ein entscheidender Vorteil von KBVT sein.
+</p>
+</section>
+
+<section><title>Hilfe gesucht</title>
+<p>
+Abschließend noch eine Bitte: für die Weiterentwicklung von KBVT wird
+Hilfe gesucht. Diese fängt bereits damit an, dass Sie  
+mich per eMail (t_tuerk@gmx.de) darüber zu informieren, dass
+Sie KBVT getestet haben und warum Sie es benutzen oder nicht. 
+Auch über Erfahrungsberichte, Verbesserungsvorschläge und 
+Berichte über Fehler in KBVT freue ich mich sehr. Zur Hilfe zähle ich auch,
+dass Sie mir mitteilen, welche Features Ihnen in KBVT fehlen. Nach oben sind dieser
+Hilfe natürlich keine Grenzen gesetzt. Genaueres ist unter 
+<link href="site:hilfe">Hilfe gesucht</link> zu finden.
+</p>
+</section>
+
+  </body> 
+</document>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!ELEMENT EinstellungenDoku (VersteckteEinstellungen, EinstellungenGruppe*)>
+
+<!ELEMENT VersteckteEinstellungen (VersteckteEinstellung*)>
+<!ELEMENT VersteckteEinstellung (#PCDATA) >
+
+<!ELEMENT EinstellungenGruppe (Einstellung*)>
+<!ATTLIST EinstellungenGruppe name CDATA #REQUIRED>
+<!ATTLIST EinstellungenGruppe testClass CDATA>
+
+<!ELEMENT Einstellung (StandardWert, Wert*, Beschreibung)>
+<!ATTLIST Einstellung name CDATA #REQUIRED>
+<!ATTLIST Einstellung typ CDATA #REQUIRED>
+<!ATTLIST Einstellung client CDATA>
+<!ATTLIST Einstellung mitarbeiter CDATA>
+<!ATTLIST Einstellung testClass CDATA>
+
+<!ELEMENT StandardWert (#PCDATA) >
+<!ELEMENT Wert (#PCDATA) >
+<!ELEMENT Beschreibung (#PCDATA) >

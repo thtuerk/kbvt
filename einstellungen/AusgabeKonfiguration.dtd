@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!ELEMENT AusgabeKonfiguration (AusgabeFactory*)>
+
+<!ELEMENT AusgabeFactory (Ordner,Parameter*)>
+<!ATTLIST AusgabeFactory class CDATA #REQUIRED>
+
+<!ELEMENT Parameter (#PCDATA) >
+<!ATTLIST Parameter name CDATA #REQUIRED>
+
+<!ELEMENT Ordner (#PCDATA) >

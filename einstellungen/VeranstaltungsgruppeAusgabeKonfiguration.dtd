@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!ELEMENT VeranstaltungsgruppeAusgabeKonfiguration (MedienAusgabeFactory*)>
+
+<!ELEMENT VeranstaltungsgruppeAusgabeFactory (Parameter*)>
+<!ATTLIST VeranstaltungsgruppeAusgabeFactory class CDATA #REQUIRED>
+<!ATTLIST VeranstaltungsgruppeAusgabeFactory name CDATA #REQUIRED>
+
+<!ELEMENT Parameter (#PCDATA) >
+<!ATTLIST Parameter name CDATA #REQUIRED>

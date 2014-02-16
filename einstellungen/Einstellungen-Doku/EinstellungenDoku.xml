@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf8"?>
+<EinstellungenDoku> 
+	<VersteckteEinstellungen>
+		<VersteckteEinstellung>de.oberbrechen.koeb.einstellungen.KonfigurierbareAusleihordnung.*</VersteckteEinstellung>
+		<VersteckteEinstellung>de.oberbrechen.koeb.einstellungen.KonfigurierbareBuecherei.*</VersteckteEinstellung>	
+		<VersteckteEinstellung>de.oberbrechen.koeb.gui.bestand.standardwertReiter.StandardwertReiter.medienNrVorschlagen
+		</VersteckteEinstellung>			
+	</VersteckteEinstellungen>
+		
+	<EinstellungenGruppe name="Ausgaben">
+		<Einstellung typ="Class:de.oberbrechen.koeb.ausgaben.BenutzerAusgabeFactory" name="de.oberbrechen.koeb.gui.ausleihe.ausleiheReiter.AusleihenTabelle.AktuelleAusleihenListeAusgabe" client="YES">
+			<StandardWert>de.oberbrechen.koeb.pdf.pdfAktuelleAusleihenListe.PdfAktuelleAusleihenListeAusgabenFactory</StandardWert>
+			<Beschreibung>Bestimmt, welche Ausgabe verwendet werden soll, um im Reiter Ausleihe der Anwendung Ausleihen die aktuellen
+			Ausleihen eines Benutzers auszugegeben. Die angegebene Klasse muss das Interface AktuelleAusleihenListeAusgabenFactory implementieren.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Class:de.oberbrechen.koeb.ausgaben.MahnungslisteAusgabenFactory" name="de.oberbrechen.koeb.gui.ausleihe.mahnungenReiter.MahnungenReiter.MahnungslisteAusgabe" client="YES">
+			<StandardWert>de.oberbrechen.koeb.pdf.pdfMahnungsListe.PdfMahnungslisteAusgabenFactory</StandardWert>
+			<Beschreibung>Bestimmt, welche Ausgabe verwendet werden soll, um im Reiter Mahnungen der Anwendung Ausleihen die 
+			überzogenen Medien eines Benutzers auszugegeben. Die angegebene Klasse muss das Interface MahnungslisteAusgabenFactory implementieren.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Class:de.oberbrechen.koeb.ausgaben.MedienAusgabeFactory" name="de.oberbrechen.koeb.gui.bestand.medienReiter.MedienReiter.MedienlisteAusgabe" client="YES">
+			<StandardWert>de.oberbrechen.koeb.pdf.pdfMedienListe.PdfMedienlisteMedienAusgabeFactory</StandardWert>
+			<Beschreibung>Bestimmt, welche Ausgabe verwendet werden soll, um im Reiter Medien der Anwendung Bestand 
+			Medienlisten auszugegeben. Die angegebene Klasse muss das Interface MedienAusgabeFactory implementieren.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Class:de.oberbrechen.koeb.ausgaben.TeilnehmerlisteAusgabenFactory" name="de.oberbrechen.koeb.gui.veranstaltungen.listenReiter.ListenReiter.TeilnehmerlisteAusgabe" client="YES">
+			<StandardWert>de.oberbrechen.koeb.pdf.pdfTeilnehmerListe.PdfTeilnehmerlisteAusgabenFactory</StandardWert>
+			<Beschreibung>Bestimmt, welche Ausgabe verwendet werden soll, um im Reiter Listen der Anwendung Veranstaltung 
+			Teilnehmerlisten auszugegeben. Die angegebene Klasse muss das Interface TeilnehmerlisteAusgabenFactory implementieren.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Class:de.oberbrechen.koeb.email.ErrorEMailFactory" name="de.oberbrechen.koeb.email.ErrorEMailFactory.instanz">
+			<StandardWert>de.oberbrechen.koeb.email.ErrorEMailFactory</StandardWert>
+			<Beschreibung>Bestimmt, wie EMails, die Fehlermeldungen enthalten, erstellt werden sollen. Die angegebene Klasse muss das Interface ErrorEMailFactory implementieren.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Class:de.oberbrechen.koeb.email.MahnungEMailFactory" name="de.oberbrechen.koeb.email.MahnungEMailFactory.instanz">
+			<StandardWert>de.oberbrechen.koeb.email.MahnungEMailFactory</StandardWert>
+			<Beschreibung>Bestimmt, wie EMails, die Mahnungen enthalten, erstellt werden sollen. Die angegebene Klasse muss das Interface MahnungEMailFactory implementieren.
+			</Beschreibung>
+		</Einstellung>
+	</EinstellungenGruppe>
+	
+	<EinstellungenGruppe name="Barcodescanner" testClass="de.oberbrechen.koeb.dateien.einstellungenDoku.einstellungenTests.BarcodeScannerEinstellungenTest">		
+		<Einstellung typ="Class:de.oberbrechen.koeb.gui.barcodescanner.BarcodeReaderAdapter" name="de.oberbrechen.koeb.gui.barcodescanner.BarcodeReaderAdapter.instance" client="YES">
+			<StandardWert>null</StandardWert>
+			<Wert>de.oberbrechen.koeb.gui.barcodescanner.BarcodeReaderKeyAdapter</Wert>
+			<Wert>de.oberbrechen.koeb.gui.barcodescanner.DebugBarcodeReaderKeyAdapter</Wert>
+			<Beschreibung>Der "Treiber" für den Barcodescanner. Standardwert ist '0', d.h. kein Barcodescanner wird verwendet. Die Implementierung "BarcodeReaderKeyAdapter" ist für Barcodescanner, die ihre Ausgaben als Tastatureingaben an das Programm weiterleiten. Es wird auf ein einstellbares Startzeichen gewartet, anschließend der Barcode gelesen und dann ein Stopzeichen erwartet. Die Implementierung 'DebugBarcodeReaderKeyAdapter' schließlich dient zum Debuggen, d.h. zur Fehlersuche. Auf die Tastenkombination
+			Ctrl-M wird das Lesen eines zufälligen Medienbarcodes simuliert. Ctrl-B liefert simuliert das Lesen eines zufälligen Benutzer-Barcodes.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.gui.barcodescanner.BarcodeReaderKeyAdapter.start" client="YES">
+			<StandardWert>0005</StandardWert>
+			<Beschreibung>Diese Einstellung bestrifft die Implementierung "BarcodeReaderKeyAdapter". Sie beschreibt die Startzeichenfolge, die der Scanner vor einem Barcode sendet. Diese Zeichenfolge wird, da es sich meistens um nicht darstellbare Sonderzeichen handelt, als
+			hexadezimal kodierte Unicode-Codes der Zeichen eingegeben. Die einzelnen Zeichen müssen durch Leerzeichen getrennt werden. Sollten
+			Sie nicht wissen, ob und wenn ja welche Zeichen Ihr Scanner sendet, benutzen Sie den Test. Bei diesem werden die HEX-Codes der
+			aller eingegebenen Zeichen angezeigt.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.gui.barcodescanner.BarcodeReaderKeyAdapter.ende" client="YES">
+			<StandardWert>000a</StandardWert>
+			<Beschreibung>Diese Einstellung bestrifft die Implementierung "BarcodeReaderKeyAdapter". Sie beschreibt die Endzeichenfolge, die der Scanner nach einem Barcode sendet. Vergleichen Sie bitte mit der Dokumentation zur Startzeichenfolge.
+			</Beschreibung>
+		</Einstellung>
+	</EinstellungenGruppe>
+			
+	<EinstellungenGruppe name="Erscheinungsbild">
+		<Einstellung typ="String" name="de.oberbrechen.koeb.gui.LookAndFeel" client="YES">
+			<StandardWert>com.incors.plaf.kunststoff.KunststoffLookAndFeel</StandardWert>
+			<Wert>javax.swing.plaf.metal.MetalLookAndFeel</Wert>
+			<Wert>com.sun.java.swing.plaf.motif.MotifLookAndFeel</Wert>
+			<Wert>com.sun.java.swing.plaf.windows.WindowsLookAndFeel</Wert>
+			<Beschreibung>Java unterstützt mehrere sogenannte Look And Feels, d.h. verschiedene
+			Erscheinungsbilder der graphischen Oberfläche. Mit dieser Einstellung wird das zu verwendende Look And Feel bestimmt.			
+			</Beschreibung>
+		</Einstellung>
+		
+		<Einstellung typ="Boolean" name="de.oberbrechen.koeb.gui.ausleihe.Main.ZeigeReiter.Internetzugang" client="YES">
+			<StandardWert>TRUE</StandardWert>
+			<Beschreibung>Bestimmt, ob in der Anwendung für Ausleihen der Reiter angezeigt werden soll, der es erlaubt,
+			den Internetzugang zu steuern.
+			</Beschreibung>
+		</Einstellung>
+
+		<Einstellung typ="Boolean" name="de.oberbrechen.koeb.gui.ausleihe.Main.ZeigeReiter.Mahnungen" client="YES">
+			<StandardWert>TRUE</StandardWert>
+			<Beschreibung>Bestimmt, ob in der Anwendung für Ausleihen der Reiter angezeigt
+			werden soll, der Informationen über Mahnungen darstellt.
+			</Beschreibung>
+		</Einstellung>
+
+		<Einstellung typ="Boolean" name="de.oberbrechen.koeb.gui.ausleihe.Main.ZeigeReiter.Medien-Informationen" client="YES">
+			<StandardWert>TRUE</StandardWert>
+			<Beschreibung>Bestimmt, ob in der Anwendung für Ausleihen die Reiter angezeigt
+			werden soll, die es erlauben Informationen über Medien abzufragen und nach Medien zu suchen.
+			</Beschreibung>
+		</Einstellung>
+
+		<Einstellung typ="Boolean" name="de.oberbrechen.koeb.gui.ausleihe.Main.ZeigeReiter.bisherige_Ausleihen" client="YES">
+			<StandardWert>TRUE</StandardWert>
+			<Beschreibung>Bestimmt, ob in der Anwendung für Ausleihen der Reiter angezeigt
+			werden soll, der die bisherigen Ausleihen eines Benutzers anzeigt.
+			</Beschreibung>
+		</Einstellung>
+
+		<Einstellung typ="Boolean" name="de.oberbrechen.koeb.gui.ausleihe.mahnungenReiter.MahnungenReiter.erstelleEmailMahnungen" client="YES">
+			<StandardWert>TRUE</StandardWert>
+			<Beschreibung>Bestimmt, ob in der Anwendung für Ausleihen der Reiter für Mahnungen es erlaubt,
+				Mahnungsemails zu verschicken. Hierzu muss ein EMailHandler konfiguriert sein, der die Ansicht von eMails vor dem Versand gestattet.
+			</Beschreibung>
+		</Einstellung>
+
+		<Einstellung typ="Boolean" name="de.oberbrechen.koeb.gui.veranstaltungen.Main.zeigeBenutzerReiterEinzeln" client="YES">
+			<StandardWert>TRUE</StandardWert>
+			<Beschreibung>
+				Bei der Anmeldung eines Benutzers zu Veranstaltungen, müssen meist die Daten zum Benutzer wie auch die eigentlichen
+				Anmeldungen bearbeitet werden. Diese Einstellung bestimmt, ob hierzu in der Anmendung Veranstaltungen ein einziger
+				oder zwei getrennte Reiter angezeigt werden sollen. Bei wenigen Veranstaltungen, zu denen eine Anmeldung möglich ist,
+				bietet es im Allgemeinen an, nur einen einzigen Reiter anzuzeigen. Sonst sind getrennte Reiter sinnvoll.
+			</Beschreibung>
+		</Einstellung>		
+		
+		<Einstellung typ="String" name="de.oberbrechen.koeb.gui.Standardmitarbeiter" client="YES">
+			<StandardWert>-1</StandardWert>
+			<Beschreibung>
+				Je nach Anwendung mag es sinnvoll sein, auf den
+                                Anmeldedialog beim Programmstart zu verzichten. Dies ist über diese Einstellung möglich. Ist sie auf einen Wert kleiner
+				als 0 gesetzt, so wird den Anmeldedialog
+                                angezeigt. Bei Werten größer oder gleich 0 wird der Mitarbeiter mit der 
+                                angegebenen ID automatisch ausgewählt, falls er die zum Programmstart nötigen Berechtigungen besitzt. Die IDs der Mitarbeiter können im
+				Mitarbeiter-Dialog eingesehen werden.
+			</Beschreibung>
+		</Einstellung>
+		
+	</EinstellungenGruppe>
+
+	<EinstellungenGruppe name="eMail" testClass="de.oberbrechen.koeb.dateien.einstellungenDoku.einstellungenTests.EMailEinstellungTest">		
+		<Einstellung typ="Class:de.oberbrechen.koeb.email.EMailHandler" name="de.oberbrechen.koeb.email.EMailHandler" client="YES">
+			<StandardWert>de.oberbrechen.koeb.email.ExternerEMailHandler</StandardWert>
+			<Wert>de.oberbrechen.koeb.email.SimpleSMTPEMailHandler</Wert>
+			<Beschreibung>Diese Einstellung bestimmt die Versandmethode für eMails, indem die Klasse angegeben wird, die
+				für den Versand benutzt werden soll. Diese Klasse muss die Klasse de.oberbrechen.koeb.email.EMailHandler erweitern und 
+				einen parameterlosen Konstruktor besitzen. Es sind bereits zwei Implementierungen in KBVT vorhanden, weitere Implementierungen sind jederzeit möglich. ExternerEMailHandler ruft ein externes eMail-Programm wie bspw. KMail oder Mozilla auf. Diese Methode bietet den Vorteil, dass die gesamte Funktionalität des aufgerufenen eMail-Programms benutzt werden kann. Unter anderem ist es meist möglich, die eMails vor dem Versand zu bearbeiten. SimpleSMTPEMailHandler ist eine sehr einfache Implementierung des 
+				SMTP-Protokolls. Es wird eine Verbindung mit einem SMTP-Server hergestellt und die eMails direkt versendet. EMail können vor dem
+				Versand nicht betrachtet werden. Sie werden auch nicht archiviert. Diese Methode bietet sich vor allem an, wenn nur Fehlermeldungen an den Admin geschickt werden sollen. Da eMails vor dem Versand nicht bearbeitet werden können, steht mit dieser Einstellung
+				nicht die gesamte eMail-Funktionalität zur Verfügung. Zum Beispiel können keine eMails an alle Teilnehmer einer Veranstaltung
+				versandt werden.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.email.ExternerEMailHandler.AnzeigeBefehl" client="YES">
+			<StandardWert>kmail $to -cc $cc -bcc $bcc -s $s -body $body</StandardWert>
+			<Beschreibung>Diese Einstellung enthält den Befehl, der von ExternerEMailHandler beim Versand einer eMail, die vorher angezeigt werden soll, ausgeführt werden soll. 
+			Vor der Ausführung wird eine Ersetzung von $to durch die Empfänger, $cc durch die Kopieempfänger, $bcc durch die Blindkopieempfänger, $s durch den Betreff und $body durch den Inhalt der eMail ausgeführt.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.email.ExternerEMailHandler.DirektBefehl" client="YES">
+			<StandardWert></StandardWert>
+			<Beschreibung>Diese Einstellung enthält den Befehl, der von ExternerEMailHandler beim Versand einer eMail, die direkt versandt werden soll, ausgeführt werden soll.
+			Vor der Ausführung wird eine Ersetzung von $to durch die Empfänger, $cc durch die Kopieempfänger, $bcc durch die Blindkopieempfänger, $s durch den Betreff und $body durch den Inhalt der eMail ausgeführt.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Boolean" name="de.oberbrechen.koeb.email.ExternerEMailHandler.erlaubtAnzeige" client="YES">
+			<StandardWert>TRUE</StandardWert>
+			<Beschreibung>Gibt an, ob der konfigurierte ExterneEMailHandler die Anzeige von eMails vor dem Versand unterstützt.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Boolean" name="de.oberbrechen.koeb.email.ExternerEMailHandler.erlaubtDirektversand" client="YES">
+			<StandardWert>FALSE</StandardWert>
+			<Beschreibung>Gibt an, ob der konfigurierte ExterneEMailHandler das direkte Versenden von eMails ohne Anzeige unterstützt.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.email.SimpleSMTPEMailHandler.Server" client="YES">
+			<StandardWert></StandardWert>
+			<Beschreibung>Der SMTP-Server, den SimpleSMTPEMailHandler kontaktieren soll.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.email.SimpleSMTPEMailHandler.Username" client="YES">
+			<StandardWert></StandardWert>
+			<Beschreibung>Der Benutzername auf dem SMTP-Server, den SimpleSMTPEMailHandler kontaktieren soll. Ist ein
+			Benutzername angegeben, so wird zusammen mit dem ebenfalls einzustellenden Passwort eine Authentifizierung mittels AUTH PLAIN versucht. Ist kein Benutzername angegeben, so erfolgt keine Authentifizierung.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.email.SimpleSMTPEMailHandler.Passwort" client="YES">
+			<StandardWert></StandardWert>
+			<Beschreibung>Der Passwort auf dem SMTP-Server, den SimpleSMTPEMailHandler kontaktieren soll.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.email.SimpleSMTPEMailHandler.Absender" client="YES">
+			<StandardWert></StandardWert>
+			<Beschreibung>Der eMail-Adresse, die als Absender für von SimpleSMTPEMailHandler versandte eMails angegeben werden soll. Es ist zu beachten, dass einige SMTP-Server prüfen, ob diese Absenderadresse zum übergebenen Benutzernamen und Passwort passt.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.einstellungen.KonfigurierbareBuecherei.adminEMail">
+			<StandardWert>Thomas Türk &lt;t_tuerk@gmx.de&gt;</StandardWert>
+			<Beschreibung>Die eMail-Adresse des Administrators der Bücherei, an die Fehlermeldungen gemailt werden sollen. 
+			Mehrere Empfänger können durch Kommata getrennt angegeben werden. Da viele der Fehlermeldungen auf Programmfehler oder
+			zumindest auf Probleme bei der Benutzung hinweisen, wäre ich (Thomas Türk) dankbar, mir diese Fehlermeldungen ebenfalls 
+			zukommen zu lassen. Da ich jedoch nicht einschätzen kann, wie viele Benutzer KBVT besitzt und wie viele eMails mich dementsprechend erreichen, kann ich keine Antwort garantieren.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.einstellungen.KonfigurierbareBuecherei.buechereiEMail">
+			<StandardWert></StandardWert>
+			<Beschreibung>Die eMail-Adresse der Bücherei.
+			</Beschreibung>
+		</Einstellung>
+	</EinstellungenGruppe>
+	
+	<EinstellungenGruppe name="Konfigurationsdateien">		
+		<Einstellung typ="File" name="de.oberbrechen.koeb.gui.ausgaben.AusgabenKonfigurationXMLDatei.Standarddatei" client="YES">
+			<StandardWert>einstellungen/AusgabeKonfiguration.xml</StandardWert>
+			<Beschreibung>Die XML-Datei, die die Beschreibung der in der Anwendung Ausgaben anzuzeigenden Ausgaben enthält.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="File" name="de.oberbrechen.koeb.dateien.medienAusgabenKonfiguration.MedienAusgabeKonfigurationXMLDatei.Standarddatei" client="YES">
+			<StandardWert>einstellungen/MedienAusgabeKonfiguration.xml</StandardWert>
+			<Beschreibung>Die XML-Datei, die die Beschreibung der in der Anwendung Medien im Reiter Ausgaben auswählbaren Ausgaben enthält.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="File" name="de.oberbrechen.koeb.dateien.veranstaltungsgruppeAusgabenKonfiguration.VeranstaltungsgruppeAusgabeKonfigurationXMLDatei.Standarddatei" client="YES">
+			<StandardWert>einstellungen/VeranstaltungsgruppeAusgabeKonfiguration.xml</StandardWert>
+			<Beschreibung>Die XML-Datei, die die im Menü der Anwendung Ausgaben darzustellenden Beschreibung der in der Anwendung Medien im Reiter Ausgaben auswählbaren Ausgaben enthält.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Dir" name="de.oberbrechen.koeb.gui.ausgaben.einstellungenDoku.StandardDir" client="YES">
+			<StandardWert>einstellungen/Einstellungen-Doku</StandardWert>
+			<Beschreibung>Das Verzeichnis, in dem sich die Dokumentation der Einstellungen befindet. Jede XML-Datei in diesem Verzeichnis
+			wird versucht als Einstellungsdoku zu lesen.
+			</Beschreibung>
+		</Einstellung>		
+		<Einstellung typ="File" name="de.oberbrechen.koeb.gui.components.benutzerAusgabeWrapper.AuswahlDialog.BenutzerlistenConfigfile" client="YES">
+			<StandardWert>einstellungen/Ausgaben-Benutzerlisten.conf</StandardWert>
+			<Beschreibung>Die Datei, die die Benutzerlisten beschreibt, die für die Auswahl im Benutzerauswahl-Dialog zur Verfügung stehen. 
+			Dieser Dialog wird z.B. für die Auswahl der Benutzer benutzt, deren Benutzerausweise ausgegeben werden sollen.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="File" name="de.oberbrechen.koeb.gui.components.medienAusgabeWrapper.AuswahlDialog.MedienlistenConfigfile" client="YES">
+			<StandardWert>einstellungen/Ausgaben-Medienlisten.conf</StandardWert>
+			<Beschreibung>Die Datei, die die Medienlisten beschreibt, die für die Auswahl im Medienauswahl-Dialog zur Verfügung stehen. 
+			Dieser Dialog wird z.B. für die Auswahl der Medien benutzt, deren Aufkleber ausgegeben werden sollen.
+			</Beschreibung>
+		</Einstellung>
+			
+		<Einstellung typ="File" name="de.oberbrechen.koeb.gui.bestand.ausgabenReiter.AusgabenReiter.MedienlistenConfigfile" client="YES">
+			<StandardWert>einstellungen/Ausgaben-Medienlisten.conf</StandardWert>
+			<Beschreibung>Die Datei, die die Medienlisten beschreibt, die für die Auswahl im Ausgaben-Reiter der Anwendung Bestand zur Verfügung stehen. 
+			</Beschreibung>
+		</Einstellung>
+
+		<Einstellung typ="File" name="de.oberbrechen.koeb.gui.bestand.medienReiter.MedienReiter.MedienlistenConfigfile" client="YES">
+			<StandardWert>einstellungen/Bestand-Medienlisten.conf</StandardWert>
+			<Beschreibung>Die Datei, die die Medienlisten beschreibt, die für die Auswahl im Medien-Reiter der Anwendung Bestand zur Verfügung stehen. 
+			</Beschreibung>
+		</Einstellung>
+	
+	</EinstellungenGruppe>	
+
+	<EinstellungenGruppe name="PDF" testClass="de.oberbrechen.koeb.dateien.einstellungenDoku.einstellungenTests.PDFEinstellungTest">		
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokument.PDFViewer" client="YES" mitarbeiter="YES">
+			<StandardWert></StandardWert>
+			<Wert>gv</Wert>
+			<Wert>kghostview</Wert>
+			<Wert>acroread</Wert>
+			<Wert>xpdf</Wert>
+			<Wert>C:\Programme\Adobe\acrobat 4.0\Reader\acrord32.exe</Wert>
+			<Wert>C:\Programme\Adobe\acrobat 5.0\Reader\acrord32.exe</Wert>
+			<Beschreibung>Das Anzeigeprogramm für PDF-Dateien, das benutzt werden soll. Der angegebene Befehl erhält beim Aufruf die anzuzeigende Datei als einzigen Parameter.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokumentEinstellungen.PageSize">
+			<StandardWert>A4</StandardWert>
+			<Wert>A3</Wert>
+			<Wert>A5</Wert>
+			<Wert>letter</Wert>
+			<Wert>legal</Wert>
+			<Beschreibung>Das Standard-Papierformat für die PDF-Ausgaben.</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokumentEinstellungen.schriftSkalierung" mitarbeiter="YES">
+			<StandardWert>1</StandardWert>
+			<Wert>1.2</Wert>
+			<Wert>0.8</Wert>
+			<Beschreibung>Diese Einstellung gibt einen Faktor an, mit dem die Größe aller verwendeten Schriften sowie einige Abstände multipliziert werden. So lassen sich je nach Geschmack größere oder kleinere Schriften verwenden.</Beschreibung>
+		</Einstellung>
+		
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokumentEinstellungen.seitenRandLinks" mitarbeiter="YES">
+			<StandardWert>57</StandardWert>
+			<Beschreibung>Diese Einstellung gibt den linken Seitenrand in Points an. Ein Point ist 1/72 in oder 0,3514598 mm.</Beschreibung>
+		</Einstellung>
+		
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokumentEinstellungen.seitenRandRechts" mitarbeiter="YES">
+			<StandardWert>57</StandardWert>
+			<Beschreibung>Diese Einstellung gibt den rechten Seitenrand in Points an. Ein Point ist 1/72 in oder 0,3514598 mm.</Beschreibung>
+		</Einstellung>
+		
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokumentEinstellungen.seitenRandOben" mitarbeiter="YES">
+			<StandardWert>57</StandardWert>
+			<Beschreibung>Diese Einstellung gibt den oberen Seitenrand in Points an. Ein Point ist 1/72 in oder 0,3514598 mm.</Beschreibung>
+		</Einstellung>
+		
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokumentEinstellungen.seitenRandUnten" mitarbeiter="YES">
+			<StandardWert>42</StandardWert>
+			<Beschreibung>Diese Einstellung gibt den unteren Seitenrand in Points an. Ein Point ist 1/72 in oder 0,3514598 mm.</Beschreibung>
+		</Einstellung>
+		
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokumentEinstellungen.absatzZeilenAbstandFaktor" mitarbeiter="YES">
+			<StandardWert>1.2</StandardWert>
+			<Beschreibung>Diese Einstellung gibt an, wie weit die Zeilen in einem Absatz relativ gesehen zur Schriftgröße voneinander entfernt sein sollen.</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="String" name="de.oberbrechen.koeb.pdf.PdfDokumentEinstellungen.tabellenZeilenAbstandFaktor" mitarbeiter="YES">
+			<StandardWert>1.5</StandardWert>
+			<Wert>1.2</Wert>
+			<Beschreibung>Diese Einstellung gibt an, wie weit die Zeilen in einer Tabelle relativ gesehen zur Schriftgröße voneinander entfernt sein sollen.</Beschreibung>
+		</Einstellung>
+	</EinstellungenGruppe>
+	
+	<EinstellungenGruppe name="Sonstiges">		
+		<Einstellung typ="Class:de.oberbrechen.koeb.einstellungen.BuechereiFactory" name="de.oberbrechen.koeb.einstellungen.Buecherei.instanz">
+			<StandardWert>de.oberbrechen.koeb.einstellungen.KonfigurierbareBuechereiFactory</StandardWert>
+			<Beschreibung>Die Einstellungen zur Bücherei, also z. B. die Öffnungszeiten oder die Ausleihordnung, müssen in besonderem
+			Maße konfigurierbar sein. Daher ist diese Konfigurierbarkeit zweistufig organisiert. Die Interfaces Buecherei und Ausleihordnung kapseln 
+			wichtige Funktionen. Mit dieser Einstellung kann die zu verwendende Implementierung für die Buecherei festgelegt werden. 
+			Mit einer eigenen Implementierung sind auch sehr ungewöhnliche Einstellungen möglich. für üblichere Einstellungen steht
+			eine konfigurierbare Standard-Implementierung zur Verfügung.
+			</Beschreibung>
+		</Einstellung>
+		<Einstellung typ="Class:de.oberbrechen.koeb.einstellungen.AusleihordnungFactory" name="de.oberbrechen.koeb.einstellungen.KonfigurierbareBuecherei.ausleihordnung">
+			<StandardWert>de.oberbrechen.koeb.einstellungen.KonfigurierbareAusleihordnungFactory</StandardWert>
+			<Beschreibung>Die Einstellungen zur Bücherei, also z. B. die Öffnungszeiten oder die Ausleihordnung, müssen in besonderem
+			Maße konfigurierbar sein. Daher ist diese Konfigurierbarkeit zweistufig organisiert. Die Interfaces Buecherei und Ausleihordnung kapseln 
+			wichtige Funktionen. 	Mit einer eigenen Implementierung sind auch sehr ungewöhnliche Einstellungen möglich. Für üblichere Einstellungen steht eine konfigurierbare Standard-Implementierung des Buecherei- und auch des Ausleihordnung-Interfaces zur Verfügung.
+			Diese Einstellung gibt an, welche Ausleihordnung die Standard-Implementierung des Buecherei-Interfaces verwenden soll.
+			</Beschreibung>
+		</Einstellung>
+	</EinstellungenGruppe>		
+</EinstellungenDoku>

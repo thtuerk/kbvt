@@ -1,0 +1,40 @@
+\documentclass[11pt,a5paper,oneside,normalheadings,headsepline,nofootsepline,cleardoubleempty]{scrbook}
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+\input{definitionen.inc}
+\usepackage{makeidx}
+\makeindex
+
+\begin{document}
+
+\title{Handbuch zu \KBVT\ \Version}
+\author{\Autor\\(\emailautor)}
+\date{25. April 2004}
+
+\frontmatter
+\maketitle
+\setcounter{page}{1}
+\tableofcontents
+\cleardoublepage
+
+\addchap{Einleitung}
+\input{einleitung-handbuch.inc}
+
+\mainmatter
+\part{Handbuch für Benutzer}
+\input{benutzerhandbuch.inc}
+
+\part{Handbuch für Administratoren}
+\input{adminhandbuch.inc}
+
+\part{Handbuch für Entwicker}
+\input{entwicklerhandbuch.inc}
+
+\backmatter
+\printindex
+
+\end{document}
+
+

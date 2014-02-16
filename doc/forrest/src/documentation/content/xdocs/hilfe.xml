@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Hilfe gesucht</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Hilfe für die Weiterentwicklung gesucht</abstract> 
+  </header> 
+  <body>
+    <p>Bisher wurde KBVT von nur einer einzigen Person
+    entwickelt. Es entstand aus mehreren unabhängigen Softwarelösungen
+    für die KöB-Oberbrechen und war ursprünglich nur für diese Bücherei
+    gedacht. Im Laufe der Entwicklung zeigte sich jedoch, dass es
+    evtl. auch für andere Büchereien interessant sein kann. Inzwischen
+    ist das Projekt soweit fortgeschritten, dass eine 
+    Veröffentlichung im Internet Sinn macht, obwohl es bei weitem noch
+    nicht als fertig bezeichnet werden kann. Hilfe aller Art bei der
+    Fertigstellung und 
+    Weiterentwicklung ist jederzeit sehr willkommen.</p><p>
+    Eine solche Hilfe bei der Entwicklung von KBVT kann ganz 
+    unterschiedlicher Natur
+    sein. Bereits über eine kurze eMail, die nur mitteilt, dass Sie
+    KBVT verwenden, freue ich mich sehr. Natürlich ist es besser, wenn
+    Sie mitteilen, was Ihnen an KBVT gefällt und was nicht. In diesem
+    Zusammenhang möchte ich Sie ausdrücklich bitten, auch Kritik zu
+    äußern.<br/> 
+    Weiter gibt es viele sinnvolle Hilfen, die keine
+    Programmierkenntnisse erfordern. So ist z.B. ein schöner Name für
+    KBVT zu finden ;-) oder eine Dokumentation zu schreiben.
+    Dann gibt es viele kleinere Programmieraufgaben, z.B. Anpassungen
+    an die Bedürfnisse Ihrer eigenen Bücherei, kleine Erweiterungen
+    oder eigene Ausgaben. Ich finde es sinnvoll,
+    solche Änderungen auf diesen Seiten zu sammeln, damit auch andere
+    Büchereien davon profitieren können. Soweit es
+    meine Zeit zulässt, stehe ich hierbei auch gerne mit Rat und Tat zur Seite.
+    <br/>Bei der Entwicklung wurde bereits darauf geachtet, dass solche 
+    kleinen Erweiterungen möglichst leicht und nur mit 
+    geringen Programmierkenntnissen möglich sind. Ich habe versucht, eine
+    gute Dokumentation des Quellcodes zu schreiben und möglichst verständlichen
+    Code zu schreiben.
+    Nur an wirklich kritischen Stellen habe ich mich 
+    bei der Abwägung zwischen verständlichem und schnellem Code zu Gunsten
+    der Geschwindigkeit entschieden. Außerdem habe ich versucht, komplizierte
+    Codeteile sinnvoll zu kapseln. So ist z.B. die Kommunikation mit der
+    Datenbank gekapselt, so dass ein Zugriff auf diese ohne SQL-Kenntnisse
+    erfolgen kann.</p>
+    <p>Schließlich würde ich mich auch freuen, wenn sich jemand
+    fände, der Interesse daran besitzt, KBVT auch in größerem Rahmen 
+    weiterzuentwickeln. Dies
+    kann in Zusammenarbeit mit mir oder auch
+    unabhängig erfolgen. Selbst bei einer unabhängigen Weiterentwicklung fände
+    ich aber eine lose Absprache sinnvoll.   
+</p>
+  </body> 
+</document>

@@ -1,0 +1,27 @@
+KBVT benutzt die folgenden Libraries, die der Einfachheit halber mit
+verteilt werden. Die Libraries stehen unter verschiedenen OpenSource
+Licensen, wie unten angegeben. 
+
+kunstoff.jar
+Kunstoff Look and Feel
+http://kunstoff.incors.com/archive/
+LGPL 2.1
+
+jcalendar.jar
+http://toedter.com/jcalendar/
+LGPL 2.1
+
+mysql-connector-java-3.0.7-stable-bin.jar
+MySQL Connector/J
+https://dev.mysql.com/downloads/connector/j/
+GPL
+
+nanoxml.jar
+NanoXML
+http://nanoxml.sourceforge.net/orig/index.html
+zlib/libpng license
+
+iText.jar
+iText 0.96
+http://itextpdf.com/
+LGPL

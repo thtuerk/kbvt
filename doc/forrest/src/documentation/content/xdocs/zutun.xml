@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>ToDo</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>ToDo-Liste für KBVT</abstract> 
+  </header> 
+  <body>
+    <p>Folgende Aufgaben sind im Zusammenhang mit KBVT zur Zeit in Planung (nicht nach Priorität sortiert):</p>
+    <ul>
+      <li>Schreiben einer Dokumentation für Benutzer</li>
+      <li>Schreiben einer Dokumentation des Datenbankaufbaus</li>
+      <li>weitere Ausgaben entwicklen</li>
+      <li>externen Report-Designer anbinden</li>
+      <li>eMail- und Faxversand automatisieren</li>
+      <li>Admistrationstool erweitern</li>
+      <li>neben Veranstaltungen auch Verkäufe von Eintrittskarten
+          u.ä. verwalten</li>
+    </ul>
+  </body> 
+</document>

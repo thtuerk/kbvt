@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Features</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Features von KBVT</abstract> 
+  </header> 
+  <body> 
+    <p>KBVT ist ein Tool für kleinere und mittlere Büchereien. Unter
+    anderem bietet es</p>
+    <ul>
+       <li>Verwaltung des Bestandes</li>
+       <li>Verwaltung der Benutzer</li>
+       <li>elektronische Ausleihe</li>
+       <li>automatische Mahnungen</li>
+       <li>Verwaltung von Veranstaltungen</li>
+       <li>Ausleihstatistiken, Medienlisten, Teilnehmerlisten und
+    andere Ausgaben als PDF</li>
+       <li>Barcodescanner-Unterstützung</li>
+       <li>Erstellung von Medienaufklebern und Leserausweisen</li>
+    </ul>
+    <p>
+Diese Features werden von mehreren Anwendungen zur Verfügung
+gestellt. Ziel war es, für jede Situation eine eigene
+Anwendung zur Verfügung zu stellen und so eine einfache, leicht
+verständliche und auch leicht austauschbare Oberfläche für die
+einzelnen Aufgaben zur Verfügung zu stellen. KBVT gliedert sich 
+in folgende Hauptanwendungen:</p>
+<dl>
+  <dt>Bestandsverwaltung</dt>
+  <dd>Diese Anwendung dient der Verwaltung des Bestandes.</dd>
+
+  <dt>Ausleihe</dt>
+  <dd>Diese Anwendung dient den täglich anfallenden Aufgaben wie
+  Ausleihe, Benutzerverwaltung, Mahnungswesen, usw.</dd>
+
+  <dt>Veranstaltungen</dt>
+  <dd>Diese Anwendung dient der Verwaltung von Veranstaltungen und
+    der Verwaltung der Teilnahmen an diesen Veranstaltungen.</dd>
+  <dt>Ausgaben</dt>
+  <dd>Diese Anwendung dient der Ausgabe von Statistiken,
+    Medienlisten, Teilnehmerlisten, Medienaufklebern, Leserausweisen, usw.
+  </dd>
+  <dt>Administrationstool</dt>
+  <dd>Diese Anwendung dient der Konfiguration und Administration des
+      Systems.
+  </dd>
+</dl>
+<p>Jede dieser Anwendungen soll nun im Detail vorgestellt
+werden. Weitere Anwendungen und die Erweiterung der vorhandenen 
+sind in Planung. Näheres siehe unter
+<link href="site:todo">ToDo</link>.
+</p>
+<section>
+<title>Bestandsverwaltung</title>
+<p>Die Anwendung <em>Bestandsverwaltung</em> bietet 
+Funktionalität zum Bearbeiten
+des Bestands. Es können neue Medien eingegeben, vorhandene Medien
+bearbeitet und Medien aus dem Bestand entfernt werden.
+Neben der Verwaltung des Bestandes können Medienaufkleber für den Einsatz eines
+Barcodescanners erstellt sowie Medienlisten als
+PDF-Datei ausgegeben werden. Dieses Standardformat PDF ermöglicht nicht
+nur die Vorschau und den Druck der Medienlisten, sondern ist auch für die
+Weitergabe oder eine Veröffentlichung im Internet geeignet.</p>
+<p>
+<fork href="images/bestand1.png">
+<img src="images/bestand1-klein.jpg" alt="Screenshot 1"/></fork>
+<fork href="images/bestand2.pdf">
+<img src="images/bestand2-klein.jpg" alt="Screenshot 2"/></fork>
+</p>
+</section>
+<section>
+<title>Ausleihe</title>
+<p>Die Anwendung <em>Ausleihe</em> bietet die Funktionen, die im
+Alltag benötigt werden. Dazu zählt einmal die Ausleihe von
+Medien. Medien können ausgeliehen, verlängert und zurückgegeben
+werden. Bei der Ausleihe wird automatisch eine Konsistenzprüfung
+durchgeführt. Dabei wird z.B. überprüft, ob das Medium
+bereits von einem anderen Benutzer ausgeliehen ist.
+Ausleihen können mit Hilfe eines Barcodescanners eingegeben werden. Dazu können
+mit einem EAN13-Barcode versehene Leserausweise und Medienaufkleber in
+der Anwendung <em>Ausgaben</em> gedruckt werden.
+<br/>
+Die Mahngebühr für überzogene Medien wird bei der Rückgabe
+automatisch berechnet. Eine Liste aller Benutzer, die Medien überzogen
+haben ist einsehbar. Desweiteren können auch Informationen über den
+Ausleihstatus eines Mediums und auch über alle
+jemals getätigten Ausleihen eines Benutzers eingeholt werden.
+</p>
+<p>
+Außerdem können Benutzerdaten verwaltet werden. So können neue
+Benutzer angelegt, Daten vorhandener Benutzer aktualisiert und auch
+Benutzer wieder gelöscht werden. Neben den üblichen Daten, wie Name,
+Alter, Adresse usw. ist es auch möglich, zu jedem Benutzer einen
+Benutzernamen und ein
+Passwort oder - genauer gesagt - den MD5-Hashcode eines Passwortes 
+zu speichern. Dies wird in der KöB Oberbrechen dafür genutzt, dass
+sich Benutzer unter Eingabe dieses Passwortes im Internet über die von
+Ihnen zur Zeit ausgeliehenen Medien informieren können. 
+</p>
+<p>
+Für einige Büchereien dürfte auch die Möglichkeit, die Freischaltung
+eines Internetzugangs zu steuern, interessant sein. Die Oberfläche
+selbst nimmt zwar nur Eintragungen in der Datenbank vor und hat somit
+keinen direkten Einfluss auf die Freischaltung eines Internetzugangs,
+in Verbindung mit anderen Tools kann dies aber sehr leicht bewerkstelligt
+werden. In der KöB Oberbrechen wird hierzu der redirection-Mechanismus
+der Proxy-Servers SQUID verwendet.<br/><br/>
+<fork href="images/ausleihe1.png">
+<img src="images/ausleihe1-klein.jpg" alt="Screenshot 1"/></fork>
+<fork href="images/ausleihe2.png">
+<img src="images/ausleihe2-klein.jpg" alt="Screenshot 2"/></fork>
+<fork href="images/ausleihe3.png">
+<img src="images/ausleihe3-klein.jpg" alt="Screenshot 3"/></fork>
+<fork href="images/ausleihe4.png">
+<img src="images/ausleihe4-klein.jpg" alt="Screenshot 4"/></fork>
+<fork href="images/ausleihe5.png">
+<img src="images/ausleihe5-klein.jpg" alt="Screenshot 5"/></fork>
+<fork href="images/ausleihe6.png">
+<img src="images/ausleihe6-klein.jpg" alt="Screenshot 6"/></fork>
+<fork href="images/ausleihe7.png">
+<img src="images/ausleihe7-klein.jpg" alt="Screenshot 7"/></fork>
+</p>
+</section>
+<section>
+<title>Veranstaltungen</title>
+<p>Die Anwendung <em>Veranstaltungen</em> ermöglicht die Verwaltung von
+Veranstaltungen und Anmeldungen für diese Veranstaltungen. 
+Veranstaltungen sind in Gruppen, sogenannten Veranstaltungsgruppen
+organisiert. Benutzer können sich für die einzelnen Veranstaltungen anmelden.
+Dabei wird die Reihenfolge der Anmeldung und eine evtl. Bemerkung gespeichert.
+Nach verschiedenen Kriterien sortierte Teilnehmerlisten 
+können ausgegeben werden. Um die Teilnehmer 
+verwalten zu können, ist auch die Verwaltung der Benutzer wie in der
+Anwendung <em>Ausleihe</em> möglich.<br/><br/>
+<fork href="images/veranstaltungen1.png">
+<img src="images/veranstaltungen1-klein.jpg" alt="Screenshot 1"/></fork>
+<fork href="images/veranstaltungen2.png">
+<img src="images/veranstaltungen2-klein.jpg" alt="Screenshot 2"/></fork>
+<fork href="images/veranstaltungen3.png">
+<img src="images/veranstaltungen3-klein.jpg" alt="Screenshot 3"/></fork>
+<fork href="images/veranstaltungen4.png">
+<img src="images/veranstaltungen4-klein.jpg" alt="Screenshot 4"/></fork>
+</p>
+</section>
+<section>
+<title>Ausgaben</title>
+<p>Die Anwendung <em>Ausgaben</em> ermöglicht die Ausgabe von
+Statistiken, Medienlisten, Mahnungen, Teilnehmerlisten,
+usw. Die möglichen Ausgaben werden in einer Baumstruktur zur Auswahl
+angeboten. Vor dem Ausführen kann noch eine Beschreibung der Ausgabe
+eingesehen werden. Welche Ausgaben angeboten werden, ist frei über
+eine XML-Datei konfigurierbar. Speziell diese Anwendung ist auf
+Erweiterbarkeit ausgelegt. Hier können Sie Ihre eigenen Statistiken,
+Medienaufkleber, sowie import- / export-Filter einbauen.<br/><br/>
+<fork href="images/ausgaben1.png">
+<img src="images/ausgaben1-klein.jpg" alt="Screenshot 1"/></fork>
+</p>
+</section>
+<section>
+<title>Administrationstool</title>
+<p>Die Anwendung <em>Administrationstool</em> ermöglicht 
+Administration und Konfiguration des Systems. Sie erlaubt unter anderem:
+</p><ul>
+  <li>die grundlegende Konfiguration des Systems</li>
+  <li>die Konfiguration der Büchereispezifika und der Ausleihordnung</li>
+  <li>die Mitarbeiterverwaltung</li>
+  <li>die Verwaltung von Medientypen</li>
+  <li>die Verwaltung von Clients</li>
+  <li>die Verwaltung der Systematiken</li>
+</ul><p>
+<fork href="images/admin1.png">
+<img src="images/admin1-klein.jpg" alt="Screenshot 1"/></fork>
+<fork href="images/admin2.png">
+<img src="images/admin2-klein.jpg" alt="Screenshot 2"/></fork>
+<fork href="images/admin3.png">
+<img src="images/admin3-klein.jpg" alt="Screenshot 3"/></fork>
+</p>
+</section>
+  </body> 
+</document>

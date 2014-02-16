@@ -1,0 +1,7 @@
+KBVT - Konfigurierbares Büchereiverwaltungstool
+
+Version : 0.7
+Autor   : Thomas Türk (t_tuerk@gmx.de)    
+Homepage: http://kbvt.koeb-oberbrechen.de
+
+Copyright (C) 2002-2005 Thomas Türk

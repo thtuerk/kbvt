@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Links</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Interessante Links für KBVT</abstract> 
+  </header> 
+  <body>
+    <p>Hier einige Links zu Web-Seiten, die für die Benutzer und
+    Entwickler von KBVT von Interesse sein könnten. Ich möchte mich
+    aber ausdrücklich von der Inhalten der hier verlinkten Seiten -
+    ebenso wie auch von den Inhalten anderer verlinkter Seiten -
+    distanzieren, da ich keinen Einfluss auf die Gestaltung und den
+    Inhalt der verlinkten Seiten habe. Ich versuche, mich über den
+    Inhalt zu informieren und Links gegebenenfalls zu entfernen.
+    </p>
+    <ul>
+      <li><link href="ext:koeb-oberbrechen">KöB Oberbrechen</link></li>
+      <li><link href="ext:MySQL">MySQL</link></li>
+      <li><link href="ext:apache">Apache</link></li>
+      <li><link href="ext:java">Sun Java</link></li>
+      <li><link href="ext:eclipse">Eclipse</link></li>
+      <li><link href="ext:gnu">GNU</link></li>
+      <li><link href="ext:itext">iText</link></li>
+      <li><link href="ext:kunststoff">Kunststoff Look And Feel</link></li>
+      <li><link href="ext:jcalendar">JCalendar</link></li>
+      <li><link href="ext:nanoxml">NanoXML</link></li>
+      <li><link href="ext:jacc">jacc - just another compiler compiler for Java</link></li>
+      <li><link href="ext:jflex">JFlex - The Fast Scanner Generator for
+      Java</link></li>
+      <li><link href="ext:koha">koha - Open Source Library System</link></li>
+    </ul>
+  </body> 
+</document>

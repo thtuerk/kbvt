@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE faqs PUBLIC "-//APACHE//DTD FAQ V1.1//EN" "dtd/faq-v11.dtd">
+
+<faqs title="Frequently Asked Questions">
+    <faq id="Name">
+      <question>
+        Was bedeutet KBVT?
+      </question>
+      <answer>
+        <p>
+          KBVT ist die Abkürzung für Konfigurierbares Bücherei-Verwaltungs-Tool.
+          Nach einem schöneren Namen wird noch gesucht ;-). Vorschläge sind
+          jederzeit willkommen.
+        </p>
+      </answer>
+    </faq>
+    <faq id="Kodierung">
+      <question>
+        Warum gibt es Probleme beim Compilieren von KBVT mit jdk1.4.1?
+	  </question> <answer><p> Von jdk1.3.1 nach jdk1.4.1 hat sich die
+	  Standardkodierung der Dateien geändert. jdk1.3.1 erwartet
+	  ISO-8859-1, jdk1.4.1 ANSI_X3.4-1968.  Dennoch hatte ich persönlich
+	  nie Probleme beim Compilieren. Bei Problemen sollte ein Aufruf 
+	  des Java-Compilers mit dem Parameter -Dfile.encoding=ISO-8859-1
+	  helfen.</p>
+      </answer> 
+    </faq>
+</faqs>

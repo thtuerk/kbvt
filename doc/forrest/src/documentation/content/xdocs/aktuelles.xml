@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.1//EN" "document-v11.dtd">
+<document> 
+  <header> 
+    <title>Aktuelles</title> 
+    <authors><person name="Thomas Türk" email="t_tuerk@gmx.de"/> 
+    </authors> 
+    <abstract>Aktuelles</abstract> 
+  </header> 
+  <body>
+     <section><title>12. Juni 2004 - KBVT 0.6.2</title>
+     <ul>
+       <li>Fehler in Admin-Oberfläche beseitigt, der die Einstellung der Kulanzzeiten
+       verhinderte</li>
+       <li>mehrere Fehler im Zusammenhang mit Veranstaltungsteilnahmen beseitigt</li>
+       <li>Fehler beim Drucken von Leserausweisen beseitigt</li>
+       <li>Refactoring</li>
+       <li>Performance-Optimierungen</li>
+     </ul>
+     </section>          
+     <section><title>30. April 2004 - KBVT 0.6.1</title><p>
+     Seit der Version 0.6 wurden einige kleine, unbedeutende Bugs entfernt.
+     Außerdem wurde die Anzeige der Warnmeldungen bei fehlenden Einstellungen,
+     die aber automatisch mit Standardwerten initialisiert werden, 
+     konfigurierbar gestaltet. Da diese Warnmeldungen, die für Debug-Zwecke 
+     gedacht waren, von vielen Benutzern für Fehlermeldungen gehalten 
+     wurden und zu Verwirrung führten, wurden sie standardmäßig abgeschaltet.
+     In Version 0.6.1 ist es zudem möglich, Mitarbeiter als nicht mehr 
+     aktiv zu kennzeichnen.</p>
+     </section>          
+     <section><title>18. April 2004 - KBVT 0.6</title><p>
+     Seit Version 0.5.5 wurde das Datenbankschema überarbeitet. Bei dieser
+     Gelegenheit wurde ein Refactoring des gesamten Systems durchgeführt.
+     Die wichtigsten Änderungen sind:</p>
+     <ul>
+       <li>neues Datenbankschema</li>
+       <li>Benutzung eigener Systematiken möglich</li>
+       <li>mehrere EANs pro Medium möglich</li>
+       <li>ISBN-Nummer kann zu einem Medium eingegeben werden</li>
+       <li>überarbeitetes Konzept für Ausleihen</li>
+       <li>Verbesserung der Benutzeroberfläche zur Medieneingabe</li>
+       <li>Überarbeitung aller Benutzeroberflächen</li>
+       <li>zusätzliche und verbesserte Ausgaben</li>
+       <li>Benutzerausweise und Medienaufkleber erstmals komfortabel erstellbar</li>
+       <li>Konfigurierbarkeit stark erhöht</li>
+       <li>Konzept von VIPs eingeführt</li>
+       <li>Suche nach Medien ermöglicht</li>
+       <li>Bugs entfernt</li>
+     </ul><p>
+     Das gesamte System wurde grundlegend überarbeitet. Fast jede Datei wurde
+     dabei verändert. Dabei wurden viele Probleme und Bugs beseitigt, 
+     sicherlich sind aber auch viele neue Bugs eingebaut worden.</p>
+     </section>          
+     <section><title>5. August 2003 - KBVT 0.5.5</title>
+     <ul>
+       <li>erweitertes Verlängerungskonzept implementiert</li>
+       <li>neue Ausgabe für die aktuellen Ausleihen eines Benutzers erstellt</li>
+	   <li>erste sinnvoll benutzbare GUI für die Ausgabe von 
+	      Medienaufklebern und Benutzerausweisen implementiert</li>
+       <li>Start der Anwendungen durch Parallelisierung von Passworteingabe und
+          Initialisierung beschleunigt</li>
+       <li>PdfTabellen-Konzept überarbeitet und stark erweitert</li>
+       <li>ExterneAusgabenFactory verbessert</li>
+       <li>graphischer Error-Handler überarbeitet</li>
+       <li>GUI überarbeitet</li>
+       <li>kleinere Bugs beseitigt</li>
+  	 </ul></section>
+     <section><title>4. Juli 2003 - KBVT 0.5.4</title>
+     <ul>
+       <li>Verwaltung von Clients und Medientypen zu Administrationstool
+           hinzugefügt</li>
+       <li>Eingabe von Veranstaltungen und Veranstaltungsgruppen ermöglicht</li>
+       <li>erste Version von Benutzerausweisen und Medienaufklebern erstellt</li>
+       <li>Internetzugangsstatistiken erstellt</li>
+       <li>neue Icons erstellt</li>
+       <li>GUI überarbeitet</li>
+       <li>Refactoring</li>
+       <li>kleinere Bugs beseitigt</li>
+  	 </ul><p>
+  	 Version 0.5.4 ist die erste Version von KBVT, die ohne SQL-Kenntnisse
+  	 installiert werden kann! Trotzdem muss das Administrationstool noch weiter
+  	 ausgebaut werden.
+  	 </p></section>
+     <section><title>25. Mai 2003 - KBVT 0.5.3</title>
+     <ul>
+        <li>in Version 0.5.2 eingeführte Bugs beseitigt</li>
+	    <li>neuen Reiter in der Ausleihe-Anwendung zur Anzeige 
+	       der bisher von einem Benutzer ausgeliehenen Medien entwickelt</li>
+	    <li>Mitarbeiterverwaltung zum Administrationstool hinzugefügt</li>
+  	    <li>kleinere Bugs beseitigt</li>
+  	 </ul>
+  	 </section>
+     <section><title>22. Mai 2003 - KBVT 0.5.2</title><p>
+	 Eine Mitarbeiterverwaltung wurde 
+	 zum Administrationstool hinzugefügt, 
+	 kleinere Bugs beseitigt.
+     </p>
+     </section>
+     <section><title>11. Mai 2003 - KBVT 0.5.1</title><p>
+     Eine erste Version eines Administrationstools wurde
+     erstellt. Außerdem wurden
+     kleinere Änderungen an anderen Programmteilen getätigt. 
+     </p>
+     </section>
+     <section><title>5. Mai 2003 - KBVT 0.5</title><p>
+     Diese Homepage für KBVT wurde erstellt und KBVT 0.5 veröffentlicht.</p>
+     </section>
+  </body> 
+</document>
